@@ -47,6 +47,8 @@ function upload(response, postData) {
 
   } else {
     fs.writeFileSync(filePath, fileBuffer);
+    // http post to Converter API
+    
     response.statusCode = 200;
     response.end();
   }

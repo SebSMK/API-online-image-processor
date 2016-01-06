@@ -1,5 +1,5 @@
 module.exports = {
-  port: 8000,
+  port: 8002,
   s3: {
     key: '',
     secret: '',

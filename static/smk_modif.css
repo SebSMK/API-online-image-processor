@@ -1,0 +1,508 @@
+@CHARSET "ISO-8859-1";
+
+
+.doc-doc i, .doc-docx i {         
+    background-image: url(../images/Word.png);    
+    background-size: 50px;    
+    background-position: 0px;
+}
+
+.doc-xls i, .doc-xlsx i {         
+    background-image: url(../images/Excel.png);    
+    background-size: 50px;    
+    background-position: 0px;
+}
+
+.doc-ppt i, .doc-pptx i {         
+    background-image: url(../images/PowerPoint.png);    
+    background-size: 50px;    
+    background-position: 0px;
+}
+
+.doc-pdf i {         
+    background-image: url(../images/Pdf.png);    
+    background-size: 50px;    
+    background-position: 0px;
+}
+    
+.matrix {
+    margin: 50px -15px 0;
+}
+
+.elem-type {
+    font-family: "hill thin",sans-serif;
+    font-size: 1.8em;
+}
+
+.search-results {
+    margin-top: 5px;
+}
+
+.pagination.top {
+    border-bottom: 1px solid #e5e5e5;
+    border-top: 0 none;
+}
+.pagination {
+    font-size: 14px;
+    height: 42px;
+    line-height: 42px;
+    position: relative;
+}
+
+.pagination form {
+    display: inline;
+}
+form {
+    margin: 0;
+}
+
+.pagination_total, .pagination_page_links {
+    float: left;
+    height: 42px;
+}
+b, strong {
+    font-weight: bold;
+}
+
+.pagination_controls {
+    float: right;
+    height: 42px;
+    max-width: 55%;
+    position: relative;
+    text-align: right;
+}
+
+
+.pagination_controls .hide_mobile, .pagination_controls .strict_search {
+    display: inline-block;
+}
+.pagination label, .pagination .icon_button_group {
+    margin-left: 5px;
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+.pagination_controls.multiple_filters select {
+    max-width: 150px;
+}
+.pagination_controls .hide_mobile, .pagination_controls .strict_search {
+    display: inline-block;
+}
+          
+.tagcloud {
+    display: block;
+    left: 5px;
+    position: absolute;
+    top: 180px;
+    width: 250px;
+}
+
+.container {
+    padding-left: 200px;
+}
+
+.tags li {
+    display: inline;    
+}
+
+.tags a:hover {
+    border: 2px solid #be2e0d;
+    color: #be2e0d;
+}
+.tags a {
+    border: 2px solid #aaa;
+    border-radius: 8px;
+    color: #999;
+    line-height: 2.5em;
+    margin: 0 8px 12px 0;
+    padding: 5px 10px;
+    white-space: pre;
+}
+
+.inline-gallery .inline-gallery-down {
+    background: rgba(0, 0, 0, 0) url("../images/down.png") no-repeat scroll right 5px;
+    bottom: 0;
+    color: #a2a2a5;
+    display: inline-block;
+    font-size: 0.8em;
+    height: 33px;
+    left: auto;
+    line-height: 31px;
+    position: absolute;
+    right: 93px;
+    text-indent: -70px;
+    width: 14px;
+
+}
+
+.inline-gallery .inline-gallery-down:hover {
+    color: #5f5f60;
+}
+
+.opaque > *:not(.generalspinner) { 
+	background-color:rgba(255, 255, 255);
+	opacity: 0.5; 
+}
+
+.matrix-equalized .matrix-tile.image-loading .spinner {
+    display: inline;    
+}
+
+.matrix-equalized .matrix-tile-image.matrix-tile-image-missing .spinner {
+    display: none;    
+}
+
+/*
+.filter-group-interval input[type="submit"] {
+  float: left;
+  width: 16%;
+    
+    background-color: #C8C8C8;
+    background-image: none;
+    border: 1px solid #282828;
+    color: #333;
+    font-family: "hill demibold",sans-serif;
+    font-size: 12px;
+    letter-spacing: 0.04em;
+    margin-top: 0;
+    outline: medium none;
+    padding: 7px 4px;
+    transition: background-color 0.2s ease 0s; 
+    margin-left: 10px;
+}
+*/
+
+@media print {
+    .sis-Feedback {
+        display:none;
+    }
+    
+    #smk_search_version{
+    	display:none;
+    }
+}
+
+.main-header .branding span {
+	font-family: 'hill thin', sans-serif;	
+}
+
+@media print {
+	.main-header .branding span {
+		display:none;	
+	}
+}
+
+.sis-FeedbackButton {
+	z-index: 11;	
+}
+
+ul.data-pair-value li:before
+{
+	content:"-   ";
+}
+
+.data-extend-key{
+    color: #a2a2a5;
+}
+
+.data-extend-value{    
+	padding-bottom: 8px;
+}
+
+.filter-group {
+  margin-top: 10px;
+}
+
+.filter-group-pair label {
+  text-transform: capitalize;
+}
+
+.no-touch .cd-top:hover {
+    background-color: #fff;
+}   
+
+/*
+.data-section .data-pair:nth-child(odd) {
+  background: #fff8ed;
+}
+*/
+
+.data-section .data-pair .data-pair-key.indent{  
+  text-indent: 10px;
+}
+
+.data-section .data-pair .data-pair-value span{
+  font-weight: bold;
+}
+
+.matrix-tile-image{
+	position: relative;		
+}
+
+
+.matrix-tile-date:before {
+    content: ", ";
+}
+
+.matrix-tile-date {
+    font-size: 0.8em;
+}
+
+.data-section .data-pair .data-pair-value.high { 
+    line-height: 2em;    
+}
+
+.preloaded{
+	opacity:0 !important;	
+}
+
+.matrix-tile .copyright-info,
+.gallery__main .copyright-info 
+{
+	background: none repeat scroll 0 0 rgba(0, 0, 0, 0.2);
+    bottom: 0;
+    cursor: pointer;
+    display: table;    
+    left: 0;
+    pointer-events: none;
+    position: absolute;
+    width: 100%;
+    opacity: 0;	
+    color: white;
+    font-style: italic;
+    text-align: left;
+}
+
+.matrix-tile .copyright-info >ul {
+    margin-bottom: 0.2em;
+    margin-left: 0.5em;
+}
+
+a.divLink {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    text-decoration: none;
+    /* Makes sure the link doesn't get underlined */
+    z-index: 10;
+    /* raises anchor tag above everything else in div */
+    background-color: white;
+    /*workaround to make clickable in IE */
+    opacity: 0;
+    /*workaround to make clickable in IE */
+    filter: alpha(opacity=0);
+    /*workaround to make clickable in IE */
+}
+
+
+#pager-viser{		
+    bottom: 5px;
+    margin: 1em 0 0.5em;
+    position: fixed;
+    right: 70px;
+    text-align: center;
+    width: 200px;
+}
+   
+#pager-viser li {
+    display: inline-block;        
+    color: #88888c;
+    float: left;
+    font-style: italic;
+    padding-top: 1.25em;
+}
+
+.matrix-tile.scroll_add, .matrix-tile.realtime_add {
+	opacity: 0;
+	transition: opacity 500ms ease-in-out 0s;
+}
+
+.search-terms ul li {
+    background-clip: padding-box;
+    background-color: #111;
+    border-radius: 2px;
+    color: #fff;
+    cursor: default;
+    display: inline-block;
+    line-height: normal;
+    margin: 0 0.35em 0.5em 0;
+    padding: 0.25em 1.5em 0.25em 0.4em;
+    position: relative;
+}
+.search-terms ul li > span {
+    color: #fff;
+}
+.search-terms ul li > a {
+    background-image: url("../images/sprite_2x_old.png");
+    background-position: 0 -36px;
+    background-size: 215px auto;
+    display: inline-block;
+    height: 9px;
+    opacity: 0.6;
+    position: absolute;
+    right: 0.4em;
+    text-indent: -9999em;
+    top: 0.45em;
+    width: 9px;
+}
+
+#smk_search_version {
+    color: #e2e3eb;
+    position: fixed;
+    bottom: 5px;
+    left: 5px;
+}
+
+.highlight {
+    background-color: #fff8ac;
+}
+
+.scroll-spinning {		
+	background: url("../images/scroll_spinning.gif") no-repeat fixed 57% bottom rgba(255, 255, 255, 1);
+    bottom: 0;
+    height: 16px;
+    left: 56%;
+    margin-left: auto;
+    margin-right: auto;
+    position: fixed;
+    width: 25px;
+    z-index: 1001;
+    display: none;	
+}
+
+.matrix-tile-size  {
+  width: 1px;  
+  float: left;
+  border: 1px solid transparent;
+  
+}
+@media (min-width: 1000px) {
+  .matrix-tile-size  {
+    width: 1px;
+  }
+  
+  .matrix-five-columns .matrix-tile-size, .search-results-full-width .matrix-tile-size{
+    width: 1px;
+	}
+  
+}
+
+.tt-suggestion i {
+  color: #a2a2a5;
+  font-style: italic;
+  font-size: .8em;
+}
+
+
+/* Modif of Jacques' code */
+
+.inline-gallery img {
+    /*opacity: 1;*/
+    margin-top: 1.5px;
+}
+
+.inline-gallery .inline-gallery-main {
+    height: auto;
+ }
+
+.matrix-tile:hover {
+    border: 1px solid #1a1919;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15);
+    cursor: default;
+    z-index: 999;
+}
+
+.matrix-tile-image img {
+  max-width: 100%;
+  /* width: 100%; */
+  width: auto;
+  max-height: 150px;
+}
+
+.matrix-equalized .matrix-tile-image img {
+  /* opacity: 1;*/ 
+  -webkit-transition: opacity 400ms ease;
+  -moz-transition: opacity 400ms ease;
+  -ms-transition: opacity 400ms ease;
+  -o-transition: opacity 400ms ease;
+  transition: opacity 400ms ease;
+}
+
+.matrix-equalized .matrix-tile-image img[src*="default_picture"] {
+    opacity: 0.3;
+}
+
+.inline-gallery .inline-gallery-copyright-show-hide i.cc0 {  
+  background-image: url(../images/cc0.png); 
+  background-position: 0px 0px;
+  background-size: 88px 31px; 
+  width: 88px;
+  height: 31px;
+  opacity: 0.2;
+}
+
+
+
+.inline-gallery .inline-gallery-copyright-show-hide.cc0active {   
+  cursor: pointer;
+}
+
+
+.inline-gallery .inline-gallery-copyright-show-hide.cc0active:hover {   
+  cursor: pointer;
+  color: #5f5f60;
+}
+
+.inline-gallery .inline-gallery-copyright-show-hide:hover {
+    color: #a2a2a5;
+    cursor: default;
+}
+
+.inline-gallery .inline-gallery-copyright-show-hide:hover i.cc0 {
+    opacity: 0.6;
+}
+.inline-gallery .inline-gallery-copyright-show-hide:hover i {
+    opacity: 0.4;
+}
+
+.matrix-equalized .matrix-tile-meta {
+  height: 27px;
+}
+
+.artwork .artwork-artists {
+  font-size: 1.1em;
+}
+
+.matrix-tile-header h2 {    
+  margin-top: 0.5em;
+}
+
+.matrix-tile-header h3 {  
+  margin-bottom: 0em;  
+}
+
+.matrix-equalized .matrix-tile {
+    height: 300px;  
+}
+
+/*
+.matrix-tile-header h2 a {
+  max-height: 2.50em;  
+}
+
+/*
+.filter-group-interval input[type="text"] {
+  float: left;
+  width: 26%;
+}
+*/
+
+/*
+.tab-content {
+  left: 0px !important;
+  position: relative !important;
+  top: 0px !important;  
+}
+*/
