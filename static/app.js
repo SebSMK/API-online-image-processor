@@ -61,8 +61,14 @@
     xhr.onreadystatechange = function () {
       if ( xhr.readyState == 4 ) {
         if ( document.getElementById('file-' + current_file_id) ) {
-          if ( xhr.status === 200 ) {
+          if ( xhr.status === 200 ) {            
+            var jsonRes = JSON.parse(xhr.response);
+            var formatUrl = JSON.parse(xhr.response).response.formatUrl;            
             document.getElementById('file-' + current_file_id).querySelector('.progress').innerHTML = 'Uploaded';
+            document.getElementById('file-' + current_file_id).innerHTML += '<div class="name">' + formatUrl + '/large</div>';
+            document.getElementById('file-' + current_file_id).innerHTML += '<div class="name">' + formatUrl + '/medium</div>';
+            document.getElementById('file-' + current_file_id).innerHTML += '<div class="name">' + formatUrl + '/thumb</div>';
+            document.getElementById('file-' + current_file_id).innerHTML += '<img src="' + formatUrl + '/thumb">';
           } else {
             document.getElementById('file-' + current_file_id).querySelector('.progress').innerHTML = 'Failed';
           }

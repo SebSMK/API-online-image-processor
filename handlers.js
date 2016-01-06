@@ -1,5 +1,7 @@
 var config = require('./config');
+var converter = require('./converter');
 var fs = require('fs');
+var Q = require('q');
 
 function home(response, postData) {
   response.writeHead(200, {'Content-Type': 'text/html'});
@@ -47,10 +49,18 @@ function upload(response, postData) {
 
   } else {
     fs.writeFileSync(filePath, fileBuffer);
-    // http post to Converter API
     
-    response.statusCode = 200;
-    response.end();
+    // http post to Converter API    
+    converter.post(filePath)
+    .then(function(res){
+      response.statusCode = 200;     
+      response.end(JSON.stringify(res, null, 4));
+    })
+    .catch(function(err) {
+      console.error(err);                    
+      response.statusCode = 500;
+      response.end();        
+    })                        
   }
 }
 
