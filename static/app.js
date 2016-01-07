@@ -63,12 +63,14 @@
         if ( document.getElementById('file-' + current_file_id) ) {
           if ( xhr.status === 200 ) {            
             var jsonRes = JSON.parse(xhr.response);
-            var formatUrl = JSON.parse(xhr.response).response.formatUrl;            
+            var formatUrl = JSON.parse(xhr.response).response.formatUrl; 
+            var zoomUrl = JSON.parse(xhr.response).response.zoomUrl;  
+            document.getElementById('file-' + current_file_id).querySelector('.progress').className = "progress";                     
             document.getElementById('file-' + current_file_id).querySelector('.progress').innerHTML = 'Uploaded';
-            document.getElementById('file-' + current_file_id).innerHTML += '<div class="name">' + formatUrl + '/large</div>';
-            document.getElementById('file-' + current_file_id).innerHTML += '<div class="name">' + formatUrl + '/medium</div>';
-            document.getElementById('file-' + current_file_id).innerHTML += '<div class="name">' + formatUrl + '/thumb</div>';
-            document.getElementById('file-' + current_file_id).innerHTML += '<img src="' + formatUrl + '/thumb">';
+            document.getElementById('file-' + current_file_id).innerHTML += '<div class="name">' + zoomUrl + '</div>';
+            document.getElementById('file-' + current_file_id).innerHTML += '<div class="name">' + formatUrl + '/large' + '<img src="' + formatUrl + '/large"></div>';
+            document.getElementById('file-' + current_file_id).innerHTML += '<div class="name">' + formatUrl + '/medium' + '<img src="' + formatUrl + '/medium"></div>';
+            document.getElementById('file-' + current_file_id).innerHTML += '<div class="name">' + formatUrl + '/thumb' + '<img src="' + formatUrl + '/thumb"></div>';            
           } else {
             document.getElementById('file-' + current_file_id).querySelector('.progress').innerHTML = 'Failed';
           }
@@ -88,7 +90,7 @@
       locked = true;
 
       document.getElementById('file-' + current_file_id).querySelector('.progress').innerHTML = 'Uploading...';
-
+      document.getElementById('file-' + current_file_id).querySelector('.progress').className += ' blink_me';
       var current_file = all_files[current_file_id];
 
       var reader = new FileReader();
@@ -106,7 +108,7 @@
   };
 
   var dropzone = document.getElementById('dropzone');
-  dropzone.addEventListener('click', openFileDialog, false);
+  //dropzone.addEventListener('click', openFileDialog, false);
   dropzone.addEventListener('dragenter', noopHandler, false);
   dropzone.addEventListener('dragexit', noopHandler, false);
   dropzone.addEventListener('dragover', noopHandler, false);

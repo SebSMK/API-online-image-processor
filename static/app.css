@@ -4,6 +4,18 @@ body {
   line-height: 1.8;
 }
 
+.blink_me {
+  animation: blinker 1s linear infinite;
+}
+
+@keyframes blinker {  
+  50% { opacity: 0.0; }
+}
+
+.name img{
+  display: block;
+}
+
 a,
 body {
   color: #c7c7c7;
@@ -24,9 +36,9 @@ input[type="file"] {
 #dropzone {
 	background-color: #f7f7f7;
 	border: 2px dashed #c7c7c7;
-	height: 500px;
+	//height: 500px;
 	margin: 20px;
-	overflow: scroll;
+	//overflow: scroll;
 	overflow-x: hidden;
 	text-align: center;
 }
@@ -52,6 +64,7 @@ input[type="file"] {
 	line-height: 20px;
 	padding: 20px;
 	text-align: left;
+  overflow-x: hidden;
 }
 
 #dropzone .file .name {
@@ -60,6 +73,8 @@ input[type="file"] {
   text-overflow: ellipsis;
   white-space: nowrap;
 	width: 90%;
+  border-bottom: #e7e7e7 1px solid;
+  padding-bottom: 5px;
 }
 
 #dropzone .file .progress {
