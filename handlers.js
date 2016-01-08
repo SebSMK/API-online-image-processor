@@ -49,10 +49,12 @@ function upload(response, postData) {
 
   } else {
     fs.writeFileSync(filePath, fileBuffer);
+
+    // use socket.io to send: "uploded - start processing"
     
     // http post to Converter API    
     converter.post(filePath)
-    .then(function(res){
+    .then(function(res){      
       response.statusCode = 200;     
       response.end(JSON.stringify(res, null, 4));
     })

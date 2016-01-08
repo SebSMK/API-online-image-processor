@@ -1,5 +1,8 @@
 @CHARSET "ISO-8859-1";
 
+#dropzone.queue span.viz {
+    display: inline;
+}
 
 .doc-doc i, .doc-docx i {         
     background-image: url(../images/Word.png);    

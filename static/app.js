@@ -54,7 +54,7 @@
       name: all_files[current_file_id].name,
       type: all_files[current_file_id].type,
       contents: evt.target.result
-    };
+    };    
 
     var xhr = new XMLHttpRequest();
     xhr.open('POST', '/upload', true);
@@ -65,12 +65,16 @@
             var jsonRes = JSON.parse(xhr.response);
             var formatUrl = JSON.parse(xhr.response).response.formatUrl; 
             var zoomUrl = JSON.parse(xhr.response).response.zoomUrl;  
-            document.getElementById('file-' + current_file_id).querySelector('.progress').className = "progress";                     
-            document.getElementById('file-' + current_file_id).querySelector('.progress').innerHTML = 'Uploaded';
-            document.getElementById('file-' + current_file_id).innerHTML += '<div class="name">' + zoomUrl + '</div>';
-            document.getElementById('file-' + current_file_id).innerHTML += '<div class="name">' + formatUrl + '/large' + '<img src="' + formatUrl + '/large"></div>';
-            document.getElementById('file-' + current_file_id).innerHTML += '<div class="name">' + formatUrl + '/medium' + '<img src="' + formatUrl + '/medium"></div>';
-            document.getElementById('file-' + current_file_id).innerHTML += '<div class="name">' + formatUrl + '/thumb' + '<img src="' + formatUrl + '/thumb"></div>';            
+           
+            
+            document.getElementById('file-' + current_file_id).querySelector('.progress').className = 'progress';                     
+            document.getElementById('file-' + current_file_id).querySelector('.progress').innerHTML = 'Uploaded';                       
+            
+            document.getElementById('file-' + current_file_id).innerHTML += '<div class="name"><a target="_blank" href="' + zoomUrl + '"><span class="viz">zoom</span></a></div>';            
+            document.getElementById('file-' + current_file_id).innerHTML += '<div class="name"><a target="_blank" href="' + formatUrl + '/thumb"><span class="viz">thumb</span><img src="' + formatUrl + '/thumb"></a></div>';
+            document.getElementById('file-' + current_file_id).innerHTML += '<div class="name"><a target="_blank" href="' + formatUrl + '/medium"><span class="viz">medium</span><img src="' + formatUrl + '/medium"></a></div>';
+            document.getElementById('file-' + current_file_id).innerHTML += '<div class="name"><a target="_blank" href="' + formatUrl + '/large"><span class="viz">large</span><img src="' + formatUrl + '/large"></a></div>';                      
+          
           } else {
             document.getElementById('file-' + current_file_id).querySelector('.progress').innerHTML = 'Failed';
           }
