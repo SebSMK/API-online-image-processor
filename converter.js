@@ -7,7 +7,7 @@ sprintf = require('sprintf-js').sprintf;
 function post(filepath) {
   
   var filename = filepath.split('/').pop();  
-  var post_data = sprintf('{"id":"1450349199071", "invnumber":"%s", "link":"%s"}', filename, filepath);
+  var post_data = sprintf('{"invnumber":"%s", "link":"%s"}', filename, filepath);
   
   var deferred = Q.defer(),
   options = {
