@@ -12,6 +12,44 @@
     evt.stopPropagation();
     evt.preventDefault();
   };
+  
+  var hasClass = function(el, className) {
+    if (el.classList)
+      return el.classList.contains(className)
+    else
+      return !!el.className.match(new RegExp('(\\s|^)' + className + '(\\s|$)'))
+  };
+  
+  var selectImage = function (evt) {
+    evt.stopPropagation();
+    evt.preventDefault();
+    
+    var classname = "selected"
+    var el = document.getElementsByClassName(classname);
+    
+    for (var i = 0, length = el.length; i < length; i++) {
+      el[0].className = el[0].className.replace(classname,"");
+    }
+    
+    evt.currentTarget.getElementsByTagName('div')[0].className += " selected";         
+    
+    refreshViewer();
+                 
+  };
+  
+  var refreshViewer = function () {       
+    var selected = document.getElementById('dropzone').getElementsByClassName('selected');
+    var zoomUrl;
+    
+    for (var i = 0, length = selected.length; i < length; i++) {      
+        zoomUrl = selected[i].getAttribute('zoomUrl');              
+    }     
+    
+    if (zoomUrl !== undefined){
+      //document.getElementById('viewzone').innerHTML = '<iframe></iframe>';
+      document.getElementById('viewzone').querySelector('iframe').src = zoomUrl;
+    }                
+  };
 
   var drop = function (evt) {
     noopHandler(evt);
@@ -35,7 +73,10 @@
       document.getElementById('dropzone').className = 'queue';
 
       for ( i = prev_count_files + waiting, j = 0; i < prev_count_files + files.length + waiting; i++, j++ ) {
-        document.getElementById('dropzone').innerHTML += '<div class="file" id="file-' + i + '"><div class="name">' + files[j].name + '</div><div class="progress">Waiting...</div><div class="clear"></div></div>';
+        //document.getElementById('dropzone').innerHTML += '<div class="file" id="file-' + i + '"><div class="name">' + files[j].name + '</div><div class="progress">Waiting...</div><div class="clear"></div></div>';        
+        var aEl  = document.createElement("div");
+        aEl.innerHTML = '<div class="file" id="file-' + i + '"><div class="name">' + files[j].name + '</div><div class="progress">Waiting...</div><div class="clear"></div></div>';        
+        document.getElementById('dropzone').appendChild(aEl);
       }
 
       waiting += count;
@@ -70,11 +111,14 @@
             document.getElementById('file-' + current_file_id).querySelector('.progress').className = 'progress';                     
             document.getElementById('file-' + current_file_id).querySelector('.progress').innerHTML = 'Uploaded';                       
                                                 
-            document.getElementById('file-' + current_file_id).innerHTML += '<div class="name"><img src="' + formatUrl + '/thumb"></a></div>';
+            document.getElementById('file-' + current_file_id).innerHTML += '<a></a>';
+            var a = document.getElementById('file-' + current_file_id).querySelector('a');
+            a.href = "#";
+            a.innerHTML += '<div zoomUrl="' + zoomUrl + '" class="image"><img src="' + formatUrl + '/thumb"></a></div>';
+            a.getElementsByTagName('div')[0].className += " selected";  
+            a.addEventListener('click', selectImage, false);
             
-            document.getElementById('viewzone').innerHTML = '<iframe></iframe>';
-            document.getElementById('viewzone').querySelector('iframe').src += zoomUrl;
-                                              
+            refreshViewer();
           
           } else {
             document.getElementById('file-' + current_file_id).querySelector('.progress').innerHTML = 'Failed';
@@ -118,6 +162,7 @@
   dropzone.addEventListener('dragexit', noopHandler, false);
   dropzone.addEventListener('dragover', noopHandler, false);
   dropzone.addEventListener('drop', drop, false);
+  
 
   var addFile = document.getElementById('addFile');
   addFile.addEventListener('change', handleFileDialog);
