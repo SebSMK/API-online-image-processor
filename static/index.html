@@ -18,7 +18,12 @@
     <span>Drop billedfilen her...</span>
   </div>
   <div class="viewzone" id="viewzone">
-    <iframe></iframe>
+    <form id="viewForm" target="my-iframe" method="post">
+      <input type='hidden' id='id' name='id' />      
+    </form>
+		
+
+    <iframe name="my-iframe"></iframe>
     <span></span>
   </div>
   <input type="file" id="addFile" multiple>

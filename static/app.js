@@ -7,6 +7,8 @@
   var locked = false;
   var prev_count_files = 0;
   var waiting = 0;
+  
+  var zoomServer = "http://csdev-seb-02:4000/imgsrv/test/zoom";
 
   var noopHandler = function (evt) {
     evt.stopPropagation();
@@ -39,15 +41,19 @@
   
   var refreshViewer = function () {       
     var selected = document.getElementById('dropzone').getElementsByClassName('selected');
-    var zoomUrl;
+    var zoomId;
     
     for (var i = 0, length = selected.length; i < length; i++) {      
-        zoomUrl = selected[i].getAttribute('zoomUrl');              
+        zoomId = selected[i].getAttribute('imageid');              
     }     
     
-    if (zoomUrl !== undefined){
+    if (zoomId !== undefined){
       //document.getElementById('viewzone').innerHTML = '<iframe></iframe>';
-      document.getElementById('viewzone').querySelector('iframe').src = zoomUrl;
+      //document.getElementById('viewzone').querySelector('iframe').src = zoomServer;
+      document.getElementById("viewForm").action = zoomServer;
+      document.getElementById("viewForm").action = zoomServer;
+      document.getElementById('id').value = zoomId;
+      document.getElementById("viewForm").submit();
     }                
   };
 
@@ -105,7 +111,8 @@
           if ( xhr.status === 200 ) {            
             var jsonRes = JSON.parse(xhr.response);
             var formatUrl = JSON.parse(xhr.response).response.formatUrl; 
-            var zoomUrl = JSON.parse(xhr.response).response.zoomUrl;              
+            var zoomUrl = JSON.parse(xhr.response).response.zoomUrl; 
+            var imageid = JSON.parse(xhr.response).response.id;              
            
             
             document.getElementById('file-' + current_file_id).querySelector('.progress').className = 'progress';                     
@@ -114,7 +121,7 @@
             document.getElementById('file-' + current_file_id).innerHTML += '<a></a>';
             var a = document.getElementById('file-' + current_file_id).querySelector('a');
             a.href = "#";
-            a.innerHTML += '<div zoomUrl="' + zoomUrl + '" class="image"><img src="' + formatUrl + '/thumb"></a></div>';
+            a.innerHTML += '<div imageid="' + imageid + '" class="image"><img src="' + formatUrl + '/thumb"></a></div>';
             a.getElementsByTagName('div')[0].className += " selected";  
             a.addEventListener('click', selectImage, false);
             
