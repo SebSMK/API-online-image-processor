@@ -41,18 +41,20 @@
   
   var refreshViewer = function () {       
     var selected = document.getElementById('dropzone').getElementsByClassName('selected');
-    var zoomId;
+    var zoomIds = [];
     
-    for (var i = 0, length = selected.length; i < length; i++) {      
-        zoomId = selected[i].getAttribute('imageid');              
+    for (var i = 0, length = selected.length; i < length; i++) {
+      var zoomId = {};      
+      zoomId['id'] = selected[i].getAttribute('imageid');
+      zoomIds.push(zoomId);              
     }     
     
-    if (zoomId !== undefined){
-      //document.getElementById('viewzone').innerHTML = '<iframe></iframe>';
-      //document.getElementById('viewzone').querySelector('iframe').src = zoomServer;
+    if (zoomIds.length > 0){      
+      //document.getElementById('viewzone').querySelector('iframe').src = zoomServer + '/' + zoomIds[0].id;
+            
       document.getElementById("viewForm").action = zoomServer;
       document.getElementById("viewForm").action = zoomServer;
-      document.getElementById('id').value = zoomId;
+      document.getElementById('images').value = JSON.stringify(zoomIds);
       document.getElementById("viewForm").submit();
     }                
   };

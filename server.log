@@ -1,0 +1,564 @@
+2016-03-08T10:36:11.865Z - [32minfo[39m: Solr Constructor 172.20.1.73:8080
+2016-03-08T10:36:13.374Z - [34mdebug[39m: Overriding 'Express' logger
+2016-03-08T10:36:13.468Z - [32minfo[39m: Serving images from /mnt/fotoII/ on port 4000
+2016-03-08T12:44:36.216Z - [32minfo[39m: -- start processing - skaeg.jpg - 1450349199071 /tmp/skaeg.jpg
+2016-03-08T12:44:36.227Z - [32minfo[39m: solrid : 1450349199071
+2016-03-08T12:44:36.228Z - [32minfo[39m: invnumber : skaeg.jpg
+2016-03-08T12:44:36.228Z - [32minfo[39m: resourcePath : /tmp/skaeg.jpg
+2016-03-08T12:44:36.228Z - [32minfo[39m: filePath name : /tmp/skaeg.jpg
+2016-03-08T12:44:36.229Z - [32minfo[39m: Converter processing : /tmp/skaeg.jpg
+2016-03-08T12:44:36.230Z - [32minfo[39m: Image.prototype.process: {
+    "path": "/tmp/skaeg.jpg",
+    "solrid": "1450349199071",
+    "invnumber": "skaeg.jpg",
+    "image": "/tmp/1450349199071.image",
+    "pyr_path": "/tmp/skaeg.jpg_1450349199071_pyr.tif"
+}
+2016-03-08T12:44:36.244Z - [32minfo[39m: read image file /tmp/skaeg.jpg
+2016-03-08T12:44:36.246Z - [32minfo[39m: detected file type : image/jpeg
+2016-03-08T12:44:36.246Z - [32minfo[39m: create tmp pyr tiff
+2016-03-08T12:44:36.247Z - [32minfo[39m: convert '/tmp/skaeg.jpg_1450349199071_pyr.tif.tmp' -define tiff:tile-geometry=256x256 -compress jpeg 'ptif:/tmp/skaeg.jpg_1450349199071_pyr.tif'
+2016-03-08T12:44:36.303Z - [32minfo[39m: convertPyr Ok
+2016-03-08T12:44:36.304Z - [32minfo[39m: create pyr tiff
+2016-03-08T12:44:36.305Z - [32minfo[39m: deleted temp pyr copy /tmp/skaeg.jpg_1450349199071_pyr.tif.tmp (/tmp/skaeg.jpg)
+2016-03-08T12:44:36.305Z - [32minfo[39m: delete tmp pyr tiff
+2016-03-08T12:44:36.306Z - [32minfo[39m: Solr Constructor csdev-seb-02:8983
+2016-03-08T12:44:36.762Z - [32minfo[39m: STATUS: 200
+2016-03-08T12:44:36.762Z - [32minfo[39m: HEADERS: {"content-type":"text/plain; charset=UTF-8","transfer-encoding":"chunked"}
+2016-03-08T12:44:36.765Z - [34mdebug[39m: Solr: response received {
+    "responseHeader": {
+        "status": 0,
+        "QTime": 432
+    }
+}
+2016-03-08T12:44:36.766Z - [32minfo[39m: send back to solrDAM: invnumber=skaeg.jpg, id=1450349199071
+2016-03-08T12:44:36.767Z - [32minfo[39m: 1450349199071 ----- processing done *******
+2016-03-08T12:44:36.865Z - [32minfo[39m: Solr Constructor csdev-seb-02:8983
+2016-03-08T12:44:36.873Z - [32minfo[39m: Solr Constructor csdev-seb-02:8983
+2016-03-08T12:44:36.876Z - [32minfo[39m: Solr Constructor csdev-seb-02:8983
+2016-03-08T12:44:36.885Z - [32minfo[39m: STATUS: 200
+2016-03-08T12:44:36.886Z - [32minfo[39m: HEADERS: {"content-type":"text/plain; charset=UTF-8","transfer-encoding":"chunked"}
+2016-03-08T12:44:36.887Z - [34mdebug[39m: Solr: response received {
+    "responseHeader": {
+        "status": 0,
+        "QTime": 4,
+        "params": {
+            "fl": "link,value,id,type,invnumber",
+            "sort": "created desc",
+            "indent": "true",
+            "q": "(id:\"1450349199071\" OR invnumber:\"1450349199071\")",
+            "json.nl": "map",
+            "wt": "json"
+        }
+    },
+    "response": {
+        "numFound": 1,
+        "start": 0,
+        "docs": [
+            {
+                "id": "1450349199071",
+                "invnumber": "skaeg.jpg",
+                "type": "jpg",
+                "value": "/tmp/skaeg.jpg_1450349199071_pyr.tif"
+            }
+        ]
+    }
+}
+2016-03-08T12:44:36.888Z - [32minfo[39m: /imgsrv/get - solr says: status=0, QTime=4, fl=link,value,id,type,invnumber, sort=created desc, indent=true, q=(id:"1450349199071" OR invnumber:"1450349199071"), json.nl=map, wt=json, numFound=1, start=0, docs=[id=1450349199071, invnumber=skaeg.jpg, type=jpg, value=/tmp/skaeg.jpg_1450349199071_pyr.tif]
+2016-03-08T12:44:36.889Z - [32minfo[39m: IIPProxy Constructor: 172.20.1.203/iipsrv/iipsrv.fcgi
+2016-03-08T12:44:36.890Z - [32minfo[39m: IIPProxy Constructor - image size: 500
+2016-03-08T12:44:36.891Z - [32minfo[39m: IIPProxy requested uri http://172.20.1.203/iipsrv/iipsrv.fcgi?FIF=/tmp/skaeg.jpg_1450349199071_pyr.tif&WID=500&CVT=jpeg
+2016-03-08T12:44:36.900Z - [32minfo[39m: STATUS: 200
+2016-03-08T12:44:36.901Z - [32minfo[39m: HEADERS: {"content-type":"text/plain; charset=UTF-8","transfer-encoding":"chunked"}
+2016-03-08T12:44:36.902Z - [34mdebug[39m: Solr: response received {
+    "responseHeader": {
+        "status": 0,
+        "QTime": 6,
+        "params": {
+            "fl": "link,value,id,type,invnumber",
+            "sort": "created desc",
+            "indent": "true",
+            "q": "(id:\"1450349199071\" OR invnumber:\"1450349199071\")",
+            "json.nl": "map",
+            "wt": "json"
+        }
+    },
+    "response": {
+        "numFound": 1,
+        "start": 0,
+        "docs": [
+            {
+                "id": "1450349199071",
+                "invnumber": "skaeg.jpg",
+                "type": "jpg",
+                "value": "/tmp/skaeg.jpg_1450349199071_pyr.tif"
+            }
+        ]
+    }
+}
+2016-03-08T12:44:36.902Z - [32minfo[39m: /imgsrv/get - solr says: status=0, QTime=6, fl=link,value,id,type,invnumber, sort=created desc, indent=true, q=(id:"1450349199071" OR invnumber:"1450349199071"), json.nl=map, wt=json, numFound=1, start=0, docs=[id=1450349199071, invnumber=skaeg.jpg, type=jpg, value=/tmp/skaeg.jpg_1450349199071_pyr.tif]
+2016-03-08T12:44:36.903Z - [32minfo[39m: IIPProxy Constructor: 172.20.1.203/iipsrv/iipsrv.fcgi
+2016-03-08T12:44:36.903Z - [32minfo[39m: IIPProxy Constructor - image size: 200
+2016-03-08T12:44:36.904Z - [32minfo[39m: IIPProxy requested uri http://172.20.1.203/iipsrv/iipsrv.fcgi?FIF=/tmp/skaeg.jpg_1450349199071_pyr.tif&WID=200&CVT=jpeg
+2016-03-08T12:44:36.906Z - [32minfo[39m: STATUS: 200
+2016-03-08T12:44:36.907Z - [32minfo[39m: HEADERS: {"content-type":"text/plain; charset=UTF-8","transfer-encoding":"chunked"}
+2016-03-08T12:44:36.908Z - [34mdebug[39m: Solr: response received {
+    "responseHeader": {
+        "status": 0,
+        "QTime": 8,
+        "params": {
+            "fl": "link,value,id,type,invnumber",
+            "sort": "created desc",
+            "indent": "true",
+            "q": "(id:\"1450349199071\" OR invnumber:\"1450349199071\")",
+            "json.nl": "map",
+            "wt": "json"
+        }
+    },
+    "response": {
+        "numFound": 1,
+        "start": 0,
+        "docs": [
+            {
+                "id": "1450349199071",
+                "invnumber": "skaeg.jpg",
+                "type": "jpg",
+                "value": "/tmp/skaeg.jpg_1450349199071_pyr.tif"
+            }
+        ]
+    }
+}
+2016-03-08T12:44:36.909Z - [32minfo[39m: /imgsrv/get - solr says: status=0, QTime=8, fl=link,value,id,type,invnumber, sort=created desc, indent=true, q=(id:"1450349199071" OR invnumber:"1450349199071"), json.nl=map, wt=json, numFound=1, start=0, docs=[id=1450349199071, invnumber=skaeg.jpg, type=jpg, value=/tmp/skaeg.jpg_1450349199071_pyr.tif]
+2016-03-08T12:44:36.910Z - [32minfo[39m: IIPProxy Constructor: 172.20.1.203/iipsrv/iipsrv.fcgi
+2016-03-08T12:44:36.910Z - [32minfo[39m: IIPProxy Constructor - image size: 100
+2016-03-08T12:44:36.911Z - [32minfo[39m: IIPProxy requested uri http://172.20.1.203/iipsrv/iipsrv.fcgi?FIF=/tmp/skaeg.jpg_1450349199071_pyr.tif&WID=100&CVT=jpeg
+2016-03-08T12:44:36.935Z - [32minfo[39m: IIPProxy response OK - content-type: image/jpeg
+2016-03-08T12:44:36.948Z - [90mexpress_log[39m: [0mGET /imgsrv/get/1450349199071/large [32m200 [0m80.366 ms - -[0m
+2016-03-08T12:44:37.929Z - [32minfo[39m: IIPProxy response OK - content-type: image/jpeg
+2016-03-08T12:44:37.940Z - [90mexpress_log[39m: [0mGET /imgsrv/get/1450349199071/medium [32m200 [0m1075.954 ms - -[0m
+2016-03-08T12:44:38.931Z - [32minfo[39m: IIPProxy response OK - content-type: image/jpeg
+2016-03-08T12:44:38.944Z - [90mexpress_log[39m: [0mGET /imgsrv/get/1450349199071/thumb [32m200 [0m2093.065 ms - -[0m
+2016-03-08T12:44:58.352Z - [32minfo[39m: -- start processing - skaeg90.jpg - 1450349199071 /tmp/skaeg90.jpg
+2016-03-08T12:44:58.354Z - [32minfo[39m: solrid : 1450349199071
+2016-03-08T12:44:58.354Z - [32minfo[39m: invnumber : skaeg90.jpg
+2016-03-08T12:44:58.354Z - [32minfo[39m: resourcePath : /tmp/skaeg90.jpg
+2016-03-08T12:44:58.355Z - [32minfo[39m: filePath name : /tmp/skaeg90.jpg
+2016-03-08T12:44:58.355Z - [32minfo[39m: Converter processing : /tmp/skaeg90.jpg
+2016-03-08T12:44:58.356Z - [32minfo[39m: Image.prototype.process: {
+    "path": "/tmp/skaeg90.jpg",
+    "solrid": "1450349199071",
+    "invnumber": "skaeg90.jpg",
+    "image": "/tmp/1450349199071.image",
+    "pyr_path": "/tmp/skaeg90.jpg_1450349199071_pyr.tif"
+}
+2016-03-08T12:44:58.361Z - [32minfo[39m: read image file /tmp/skaeg90.jpg
+2016-03-08T12:44:58.362Z - [32minfo[39m: detected file type : image/jpeg
+2016-03-08T12:44:58.362Z - [32minfo[39m: create tmp pyr tiff
+2016-03-08T12:44:58.362Z - [32minfo[39m: convert '/tmp/skaeg90.jpg_1450349199071_pyr.tif.tmp' -define tiff:tile-geometry=256x256 -compress jpeg 'ptif:/tmp/skaeg90.jpg_1450349199071_pyr.tif'
+2016-03-08T12:44:58.407Z - [32minfo[39m: convertPyr Ok
+2016-03-08T12:44:58.408Z - [32minfo[39m: create pyr tiff
+2016-03-08T12:44:58.409Z - [32minfo[39m: deleted temp pyr copy /tmp/skaeg90.jpg_1450349199071_pyr.tif.tmp (/tmp/skaeg90.jpg)
+2016-03-08T12:44:58.410Z - [32minfo[39m: delete tmp pyr tiff
+2016-03-08T12:44:58.410Z - [32minfo[39m: Solr Constructor csdev-seb-02:8983
+2016-03-08T12:44:58.488Z - [32minfo[39m: STATUS: 200
+2016-03-08T12:44:58.489Z - [32minfo[39m: HEADERS: {"content-type":"text/plain; charset=UTF-8","transfer-encoding":"chunked"}
+2016-03-08T12:44:58.490Z - [34mdebug[39m: Solr: response received {
+    "responseHeader": {
+        "status": 0,
+        "QTime": 72
+    }
+}
+2016-03-08T12:44:58.491Z - [32minfo[39m: send back to solrDAM: invnumber=skaeg90.jpg, id=1450349199071
+2016-03-08T12:44:58.491Z - [32minfo[39m: 1450349199071 ----- processing done *******
+2016-03-08T12:48:06.438Z - [32minfo[39m: -- start processing - test1.jpg - 1450349199071 /tmp/test1.jpg
+2016-03-08T12:48:06.441Z - [32minfo[39m: solrid : 1450349199071
+2016-03-08T12:48:06.441Z - [32minfo[39m: invnumber : test1.jpg
+2016-03-08T12:48:06.441Z - [32minfo[39m: resourcePath : /tmp/test1.jpg
+2016-03-08T12:48:06.441Z - [32minfo[39m: filePath name : /tmp/test1.jpg
+2016-03-08T12:48:06.444Z - [32minfo[39m: Converter processing : /tmp/test1.jpg
+2016-03-08T12:48:06.444Z - [32minfo[39m: Image.prototype.process: {
+    "path": "/tmp/test1.jpg",
+    "solrid": "1450349199071",
+    "invnumber": "test1.jpg",
+    "image": "/tmp/1450349199071.image",
+    "pyr_path": "/tmp/test1.jpg_1450349199071_pyr.tif"
+}
+2016-03-08T12:48:06.447Z - [32minfo[39m: read image file /tmp/test1.jpg
+2016-03-08T12:48:06.449Z - [32minfo[39m: detected file type : image/jpeg
+2016-03-08T12:48:06.449Z - [32minfo[39m: create tmp pyr tiff
+2016-03-08T12:48:06.449Z - [32minfo[39m: convert '/tmp/test1.jpg_1450349199071_pyr.tif.tmp' -define tiff:tile-geometry=256x256 -compress jpeg 'ptif:/tmp/test1.jpg_1450349199071_pyr.tif'
+2016-03-08T12:48:06.523Z - [32minfo[39m: convertPyr Ok
+2016-03-08T12:48:06.524Z - [32minfo[39m: create pyr tiff
+2016-03-08T12:48:06.524Z - [32minfo[39m: deleted temp pyr copy /tmp/test1.jpg_1450349199071_pyr.tif.tmp (/tmp/test1.jpg)
+2016-03-08T12:48:06.526Z - [32minfo[39m: delete tmp pyr tiff
+2016-03-08T12:48:06.526Z - [32minfo[39m: Solr Constructor csdev-seb-02:8983
+2016-03-08T12:48:06.586Z - [32minfo[39m: STATUS: 200
+2016-03-08T12:48:06.586Z - [32minfo[39m: HEADERS: {"content-type":"text/plain; charset=UTF-8","transfer-encoding":"chunked"}
+2016-03-08T12:48:06.587Z - [34mdebug[39m: Solr: response received {
+    "responseHeader": {
+        "status": 0,
+        "QTime": 53
+    }
+}
+2016-03-08T12:48:06.587Z - [32minfo[39m: send back to solrDAM: invnumber=test1.jpg, id=1450349199071
+2016-03-08T12:48:06.588Z - [32minfo[39m: 1450349199071 ----- processing done *******
+2016-03-08T13:14:23.215Z - [32minfo[39m: Solr Constructor 172.20.1.73:8080
+2016-03-08T13:14:24.622Z - [34mdebug[39m: Overriding 'Express' logger
+2016-03-08T13:14:24.653Z - [32minfo[39m: Serving images from /mnt/fotoII/ on port 4000
+2016-03-08T13:15:52.859Z - [32minfo[39m: -- start processing - Jan_Brueghel_de_Oude_en_Peter_Paul_Rubens_-_Het_aards_paradijs_met_de_zondeval_van_Adam_en_Eva - 1450349199071 /home/seb/test data/skaegrot.jpg
+2016-03-08T13:15:52.870Z - [32minfo[39m: solrid : 1450349199071
+2016-03-08T13:15:52.870Z - [32minfo[39m: invnumber : Jan_Brueghel_de_Oude_en_Peter_Paul_Rubens_-_Het_aards_paradijs_met_de_zondeval_van_Adam_en_Eva
+2016-03-08T13:15:52.871Z - [32minfo[39m: resourcePath : /home/seb/test data/skaegrot.jpg
+2016-03-08T13:15:52.871Z - [32minfo[39m: filePath name : /home/seb/test data/skaegrot.jpg
+2016-03-08T13:15:52.872Z - [32minfo[39m: Converter processing : /home/seb/test data/skaegrot.jpg
+2016-03-08T13:15:52.873Z - [32minfo[39m: Image.prototype.process: {
+    "path": "/home/seb/test data/skaegrot.jpg",
+    "solrid": "1450349199071",
+    "invnumber": "Jan_Brueghel_de_Oude_en_Peter_Paul_Rubens_-_Het_aards_paradijs_met_de_zondeval_van_Adam_en_Eva",
+    "image": "/tmp/1450349199071.image",
+    "pyr_path": "/tmp/Jan_Brueghel_de_Oude_en_Peter_Paul_Rubens_-_Het_aards_paradijs_met_de_zondeval_van_Adam_en_Eva_1450349199071_pyr.tif"
+}
+2016-03-08T13:15:52.886Z - [32minfo[39m: read image file /home/seb/test data/skaegrot.jpg
+2016-03-08T13:15:52.888Z - [32minfo[39m: detected file type : image/jpeg
+2016-03-08T13:15:52.888Z - [32minfo[39m: create tmp pyr tiff
+2016-03-08T13:15:52.889Z - [32minfo[39m: convert '/tmp/Jan_Brueghel_de_Oude_en_Peter_Paul_Rubens_-_Het_aards_paradijs_met_de_zondeval_van_Adam_en_Eva_1450349199071_pyr.tif.tmp' -define tiff:tile-geometry=256x256 -compress jpeg 'ptif:/tmp/Jan_Brueghel_de_Oude_en_Peter_Paul_Rubens_-_Het_aards_paradijs_met_de_zondeval_van_Adam_en_Eva_1450349199071_pyr.tif'
+2016-03-08T13:15:52.944Z - [32minfo[39m: convertPyr Ok
+2016-03-08T13:15:52.945Z - [32minfo[39m: create pyr tiff
+2016-03-08T13:15:52.946Z - [32minfo[39m: deleted temp pyr copy /tmp/Jan_Brueghel_de_Oude_en_Peter_Paul_Rubens_-_Het_aards_paradijs_met_de_zondeval_van_Adam_en_Eva_1450349199071_pyr.tif.tmp (/home/seb/test data/skaegrot.jpg)
+2016-03-08T13:15:52.947Z - [32minfo[39m: delete tmp pyr tiff
+2016-03-08T13:15:52.948Z - [32minfo[39m: Solr Constructor csdev-seb-02:8983
+2016-03-08T13:15:53.049Z - [32minfo[39m: STATUS: 200
+2016-03-08T13:15:53.050Z - [32minfo[39m: HEADERS: {"content-type":"text/plain; charset=UTF-8","transfer-encoding":"chunked"}
+2016-03-08T13:15:53.050Z - [34mdebug[39m: Solr: response received {
+    "responseHeader": {
+        "status": 0,
+        "QTime": 83
+    }
+}
+2016-03-08T13:15:53.051Z - [32minfo[39m: send back to solrDAM: invnumber=Jan_Brueghel_de_Oude_en_Peter_Paul_Rubens_-_Het_aards_paradijs_met_de_zondeval_van_Adam_en_Eva, id=1450349199071
+2016-03-08T13:15:53.052Z - [32minfo[39m: 1450349199071 ----- processing done *******
+2016-03-08T13:16:18.546Z - [32minfo[39m: -- start processing - skaegrot.jpg - 1450349199071 /home/seb/test data/skaegrot.jpg
+2016-03-08T13:16:18.549Z - [32minfo[39m: solrid : 1450349199071
+2016-03-08T13:16:18.549Z - [32minfo[39m: invnumber : skaegrot.jpg
+2016-03-08T13:16:18.549Z - [32minfo[39m: resourcePath : /home/seb/test data/skaegrot.jpg
+2016-03-08T13:16:18.549Z - [32minfo[39m: filePath name : /home/seb/test data/skaegrot.jpg
+2016-03-08T13:16:18.550Z - [32minfo[39m: Converter processing : /home/seb/test data/skaegrot.jpg
+2016-03-08T13:16:18.550Z - [32minfo[39m: Image.prototype.process: {
+    "path": "/home/seb/test data/skaegrot.jpg",
+    "solrid": "1450349199071",
+    "invnumber": "skaegrot.jpg",
+    "image": "/tmp/1450349199071.image",
+    "pyr_path": "/tmp/skaegrot.jpg_1450349199071_pyr.tif"
+}
+2016-03-08T13:16:18.554Z - [32minfo[39m: read image file /home/seb/test data/skaegrot.jpg
+2016-03-08T13:16:18.556Z - [32minfo[39m: detected file type : image/jpeg
+2016-03-08T13:16:18.557Z - [32minfo[39m: create tmp pyr tiff
+2016-03-08T13:16:18.557Z - [32minfo[39m: convert '/tmp/skaegrot.jpg_1450349199071_pyr.tif.tmp' -define tiff:tile-geometry=256x256 -compress jpeg 'ptif:/tmp/skaegrot.jpg_1450349199071_pyr.tif'
+2016-03-08T13:16:18.595Z - [32minfo[39m: convertPyr Ok
+2016-03-08T13:16:18.596Z - [32minfo[39m: create pyr tiff
+2016-03-08T13:16:18.597Z - [32minfo[39m: deleted temp pyr copy /tmp/skaegrot.jpg_1450349199071_pyr.tif.tmp (/home/seb/test data/skaegrot.jpg)
+2016-03-08T13:16:18.597Z - [32minfo[39m: delete tmp pyr tiff
+2016-03-08T13:16:18.597Z - [32minfo[39m: Solr Constructor csdev-seb-02:8983
+2016-03-08T13:16:18.655Z - [32minfo[39m: STATUS: 200
+2016-03-08T13:16:18.655Z - [32minfo[39m: HEADERS: {"content-type":"text/plain; charset=UTF-8","transfer-encoding":"chunked"}
+2016-03-08T13:16:18.656Z - [34mdebug[39m: Solr: response received {
+    "responseHeader": {
+        "status": 0,
+        "QTime": 50
+    }
+}
+2016-03-08T13:16:18.657Z - [32minfo[39m: send back to solrDAM: invnumber=skaegrot.jpg, id=1450349199071
+2016-03-08T13:16:18.658Z - [32minfo[39m: 1450349199071 ----- processing done *******
+2016-03-08T13:16:40.299Z - [32minfo[39m: Solr Constructor csdev-seb-02:8983
+2016-03-08T13:16:40.306Z - [32minfo[39m: STATUS: 200
+2016-03-08T13:16:40.306Z - [32minfo[39m: HEADERS: {"content-type":"text/plain; charset=UTF-8","transfer-encoding":"chunked"}
+2016-03-08T13:16:40.307Z - [34mdebug[39m: Solr: response received {
+    "responseHeader": {
+        "status": 0,
+        "QTime": 1,
+        "params": {
+            "fl": "link,value,id,type,invnumber",
+            "sort": "created desc",
+            "indent": "true",
+            "q": "(id:\"skaegrot.jpg\" OR invnumber:\"skaegrot.jpg\")",
+            "json.nl": "map",
+            "wt": "json"
+        }
+    },
+    "response": {
+        "numFound": 1,
+        "start": 0,
+        "docs": [
+            {
+                "id": "1450349199071",
+                "invnumber": "skaegrot.jpg",
+                "type": "jpg",
+                "value": "/tmp/skaegrot.jpg_1450349199071_pyr.tif"
+            }
+        ]
+    }
+}
+2016-03-08T13:16:40.308Z - [32minfo[39m: /imgsrv/get - solr says: status=0, QTime=1, fl=link,value,id,type,invnumber, sort=created desc, indent=true, q=(id:"skaegrot.jpg" OR invnumber:"skaegrot.jpg"), json.nl=map, wt=json, numFound=1, start=0, docs=[id=1450349199071, invnumber=skaegrot.jpg, type=jpg, value=/tmp/skaegrot.jpg_1450349199071_pyr.tif]
+2016-03-08T13:16:40.308Z - [32minfo[39m: IIPProxy Constructor: 172.20.1.203/iipsrv/iipsrv.fcgi
+2016-03-08T13:16:40.308Z - [32minfo[39m: IIPProxy Constructor - image size: 200
+2016-03-08T13:16:40.309Z - [32minfo[39m: IIPProxy requested uri http://172.20.1.203/iipsrv/iipsrv.fcgi?FIF=/tmp/skaegrot.jpg_1450349199071_pyr.tif&WID=200&CVT=jpeg
+2016-03-08T13:16:40.329Z - [32minfo[39m: IIPProxy response OK - content-type: image/jpeg
+2016-03-08T13:16:40.339Z - [90mexpress_log[39m: [0mGET /imgsrv/get/skaegrot.jpg/medium [32m200 [0m47.455 ms - -[0m
+2016-03-08T13:17:17.901Z - [32minfo[39m: -- start processing - skaegrot.jpg - undefined /home/seb/test data/skaegrot.jpg
+2016-03-08T13:17:17.903Z - [32minfo[39m: solrid : undefined
+2016-03-08T13:17:17.903Z - [32minfo[39m: invnumber : skaegrot.jpg
+2016-03-08T13:17:17.903Z - [32minfo[39m: resourcePath : /home/seb/test data/skaegrot.jpg
+2016-03-08T13:17:17.904Z - [32minfo[39m: filePath name : /home/seb/test data/skaegrot.jpg
+2016-03-08T13:17:17.904Z - [32minfo[39m: Converter processing : /home/seb/test data/skaegrot.jpg
+2016-03-08T13:17:17.905Z - [32minfo[39m: Image.prototype.process: {
+    "path": "/home/seb/test data/skaegrot.jpg",
+    "solrid": "7cad27d8-4d78-380d-293b-2faeabfa30b8",
+    "invnumber": "skaegrot.jpg",
+    "image": "/tmp/7cad27d8-4d78-380d-293b-2faeabfa30b8.image",
+    "pyr_path": "/tmp/skaegrot.jpg_7cad27d8-4d78-380d-293b-2faeabfa30b8_pyr.tif"
+}
+2016-03-08T13:17:17.908Z - [32minfo[39m: read image file /home/seb/test data/skaegrot.jpg
+2016-03-08T13:17:17.910Z - [32minfo[39m: detected file type : image/jpeg
+2016-03-08T13:17:17.911Z - [32minfo[39m: create tmp pyr tiff
+2016-03-08T13:17:17.911Z - [32minfo[39m: convert '/tmp/skaegrot.jpg_7cad27d8-4d78-380d-293b-2faeabfa30b8_pyr.tif.tmp' -define tiff:tile-geometry=256x256 -compress jpeg 'ptif:/tmp/skaegrot.jpg_7cad27d8-4d78-380d-293b-2faeabfa30b8_pyr.tif'
+2016-03-08T13:17:17.949Z - [32minfo[39m: convertPyr Ok
+2016-03-08T13:17:17.949Z - [32minfo[39m: create pyr tiff
+2016-03-08T13:17:17.950Z - [32minfo[39m: deleted temp pyr copy /tmp/skaegrot.jpg_7cad27d8-4d78-380d-293b-2faeabfa30b8_pyr.tif.tmp (/home/seb/test data/skaegrot.jpg)
+2016-03-08T13:17:17.951Z - [32minfo[39m: delete tmp pyr tiff
+2016-03-08T13:17:17.951Z - [32minfo[39m: Solr Constructor csdev-seb-02:8983
+2016-03-08T13:17:17.961Z - [32minfo[39m: STATUS: 400
+2016-03-08T13:17:17.961Z - [32minfo[39m: HEADERS: {"content-type":"text/plain; charset=UTF-8","transfer-encoding":"chunked"}
+2016-03-08T13:17:17.962Z - [31merror[39m: Solr: empty postjson result returned
+2016-03-08T13:17:17.963Z - [31merror[39m: send back to solrDAM: {"responseHeader":{"status":400,"QTime":2},"error":{"msg":"Document is missing mandatory uniqueKey field: id","code":400}}
+
+2016-03-08T13:19:17.948Z - [32minfo[39m: -- start processing - skaegrot.jpg - undefined /home/seb/test data/skaegrot.jpg
+2016-03-08T13:19:17.950Z - [32minfo[39m: solrid : undefined
+2016-03-08T13:19:17.950Z - [32minfo[39m: invnumber : skaegrot.jpg
+2016-03-08T13:19:17.950Z - [32minfo[39m: resourcePath : /home/seb/test data/skaegrot.jpg
+2016-03-08T13:19:17.951Z - [32minfo[39m: filePath name : /home/seb/test data/skaegrot.jpg
+2016-03-08T13:19:17.952Z - [32minfo[39m: Converter processing : /home/seb/test data/skaegrot.jpg
+2016-03-08T13:19:17.952Z - [32minfo[39m: Image.prototype.process: {
+    "path": "/home/seb/test data/skaegrot.jpg",
+    "solrid": "b3d99a6d-2913-4dcf-afe3-e8578f569127",
+    "invnumber": "skaegrot.jpg",
+    "image": "/tmp/b3d99a6d-2913-4dcf-afe3-e8578f569127.image",
+    "pyr_path": "/tmp/skaegrot.jpg_b3d99a6d-2913-4dcf-afe3-e8578f569127_pyr.tif"
+}
+2016-03-08T13:19:17.955Z - [32minfo[39m: read image file /home/seb/test data/skaegrot.jpg
+2016-03-08T13:19:17.956Z - [32minfo[39m: detected file type : image/jpeg
+2016-03-08T13:19:17.957Z - [32minfo[39m: create tmp pyr tiff
+2016-03-08T13:19:17.958Z - [32minfo[39m: convert '/tmp/skaegrot.jpg_b3d99a6d-2913-4dcf-afe3-e8578f569127_pyr.tif.tmp' -define tiff:tile-geometry=256x256 -compress jpeg 'ptif:/tmp/skaegrot.jpg_b3d99a6d-2913-4dcf-afe3-e8578f569127_pyr.tif'
+2016-03-08T13:19:17.999Z - [32minfo[39m: convertPyr Ok
+2016-03-08T13:19:17.999Z - [32minfo[39m: create pyr tiff
+2016-03-08T13:19:18.000Z - [32minfo[39m: deleted temp pyr copy /tmp/skaegrot.jpg_b3d99a6d-2913-4dcf-afe3-e8578f569127_pyr.tif.tmp (/home/seb/test data/skaegrot.jpg)
+2016-03-08T13:19:18.000Z - [32minfo[39m: delete tmp pyr tiff
+2016-03-08T13:19:18.001Z - [32minfo[39m: Solr Constructor csdev-seb-02:8983
+2016-03-08T13:19:18.009Z - [32minfo[39m: STATUS: 400
+2016-03-08T13:19:18.009Z - [32minfo[39m: HEADERS: {"content-type":"text/plain; charset=UTF-8","transfer-encoding":"chunked"}
+2016-03-08T13:19:18.010Z - [31merror[39m: Solr: empty postjson result returned
+2016-03-08T13:19:18.011Z - [31merror[39m: send back to solrDAM: {"responseHeader":{"status":400,"QTime":2},"error":{"msg":"Document is missing mandatory uniqueKey field: id","code":400}}
+
+2016-03-08T13:34:27.093Z - [32minfo[39m: Solr Constructor 172.20.1.73:8080
+2016-03-08T13:34:28.229Z - [34mdebug[39m: Overriding 'Express' logger
+2016-03-08T13:34:28.266Z - [32minfo[39m: Serving images from /mnt/fotoII/ on port 4000
+2016-03-08T13:40:33.517Z - [32minfo[39m: -- start processing - skaeg90(6).jpg - 9ec3485f-345a-8711-9ce9-e2d05a1fe7d9 /tmp/skaeg90(6).jpg
+2016-03-08T13:40:33.527Z - [32minfo[39m: solrid : 9ec3485f-345a-8711-9ce9-e2d05a1fe7d9
+2016-03-08T13:40:33.527Z - [32minfo[39m: invnumber : skaeg90(6).jpg
+2016-03-08T13:40:33.527Z - [32minfo[39m: resourcePath : /tmp/skaeg90(6).jpg
+2016-03-08T13:40:33.527Z - [32minfo[39m: filePath name : /tmp/skaeg90(6).jpg
+2016-03-08T13:40:33.528Z - [32minfo[39m: Converter processing : /tmp/skaeg90(6).jpg
+2016-03-08T13:40:33.529Z - [32minfo[39m: Image.prototype.process: {
+    "path": "/tmp/skaeg90(6).jpg",
+    "solrid": "9ec3485f-345a-8711-9ce9-e2d05a1fe7d9",
+    "invnumber": "skaeg90(6).jpg",
+    "image": "/tmp/9ec3485f-345a-8711-9ce9-e2d05a1fe7d9.image",
+    "pyr_path": "/tmp/skaeg90(6).jpg_9ec3485f-345a-8711-9ce9-e2d05a1fe7d9_pyr.tif"
+}
+2016-03-08T13:40:33.541Z - [32minfo[39m: read image file /tmp/skaeg90(6).jpg
+2016-03-08T13:40:33.542Z - [32minfo[39m: detected file type : image/jpeg
+2016-03-08T13:40:33.542Z - [32minfo[39m: create tmp pyr tiff
+2016-03-08T13:40:33.543Z - [32minfo[39m: convert '/tmp/skaeg90(6).jpg_9ec3485f-345a-8711-9ce9-e2d05a1fe7d9_pyr.tif.tmp' -define tiff:tile-geometry=256x256 -compress jpeg 'ptif:/tmp/skaeg90(6).jpg_9ec3485f-345a-8711-9ce9-e2d05a1fe7d9_pyr.tif'
+2016-03-08T13:40:33.586Z - [32minfo[39m: convertPyr Ok
+2016-03-08T13:40:33.587Z - [32minfo[39m: create pyr tiff
+2016-03-08T13:40:33.589Z - [32minfo[39m: deleted temp pyr copy /tmp/skaeg90(6).jpg_9ec3485f-345a-8711-9ce9-e2d05a1fe7d9_pyr.tif.tmp (/tmp/skaeg90(6).jpg)
+2016-03-08T13:40:33.589Z - [32minfo[39m: delete tmp pyr tiff
+2016-03-08T13:40:33.590Z - [32minfo[39m: Solr Constructor csdev-seb-02:8983
+2016-03-08T13:40:33.838Z - [32minfo[39m: STATUS: 200
+2016-03-08T13:40:33.838Z - [32minfo[39m: HEADERS: {"content-type":"text/plain; charset=UTF-8","transfer-encoding":"chunked"}
+2016-03-08T13:40:33.840Z - [34mdebug[39m: Solr: response received {
+    "responseHeader": {
+        "status": 0,
+        "QTime": 232
+    }
+}
+2016-03-08T13:40:33.841Z - [32minfo[39m: send back to solrDAM: invnumber=skaeg90(6).jpg, id=9ec3485f-345a-8711-9ce9-e2d05a1fe7d9
+2016-03-08T13:40:33.842Z - [32minfo[39m: 9EC3485F-345A-8711-9CE9-E2D05A1FE7D9 ----- processing done *******
+2016-03-08T13:40:58.486Z - [32minfo[39m: Solr Constructor csdev-seb-02:8983
+2016-03-08T13:40:58.578Z - [32minfo[39m: STATUS: 200
+2016-03-08T13:40:58.578Z - [32minfo[39m: HEADERS: {"content-type":"text/plain; charset=UTF-8","transfer-encoding":"chunked"}
+2016-03-08T13:40:58.580Z - [34mdebug[39m: Solr: response received {
+    "responseHeader": {
+        "status": 0,
+        "QTime": 85,
+        "params": {
+            "fl": "link,value,id,type,invnumber",
+            "sort": "created desc",
+            "indent": "true",
+            "q": "(id:\"9ec3485f-345a-8711-9ce9-e2d05a1fe7d9\" OR invnumber:\"9ec3485f-345a-8711-9ce9-e2d05a1fe7d9\")",
+            "json.nl": "map",
+            "wt": "json"
+        }
+    },
+    "response": {
+        "numFound": 1,
+        "start": 0,
+        "docs": [
+            {
+                "id": "9ec3485f-345a-8711-9ce9-e2d05a1fe7d9",
+                "invnumber": "skaeg90(6).jpg",
+                "type": "jpg",
+                "value": "/tmp/skaeg90(6).jpg_9ec3485f-345a-8711-9ce9-e2d05a1fe7d9_pyr.tif"
+            }
+        ]
+    }
+}
+2016-03-08T13:40:58.581Z - [32minfo[39m: /imgsrv/get - solr says: status=0, QTime=85, fl=link,value,id,type,invnumber, sort=created desc, indent=true, q=(id:"9ec3485f-345a-8711-9ce9-e2d05a1fe7d9" OR invnumber:"9ec3485f-345a-8711-9ce9-e2d05a1fe7d9"), json.nl=map, wt=json, numFound=1, start=0, docs=[id=9ec3485f-345a-8711-9ce9-e2d05a1fe7d9, invnumber=skaeg90(6).jpg, type=jpg, value=/tmp/skaeg90(6).jpg_9ec3485f-345a-8711-9ce9-e2d05a1fe7d9_pyr.tif]
+2016-03-08T13:40:58.582Z - [32minfo[39m: IIPProxy Constructor: 172.20.1.203/iipsrv/iipsrv.fcgi
+2016-03-08T13:40:58.582Z - [32minfo[39m: IIPProxy Constructor - image size: 100
+2016-03-08T13:40:58.583Z - [32minfo[39m: IIPProxy requested uri http://172.20.1.203/iipsrv/iipsrv.fcgi?FIF=/tmp/skaeg90(6).jpg_9ec3485f-345a-8711-9ce9-e2d05a1fe7d9_pyr.tif&WID=100&CVT=jpeg
+2016-03-08T13:40:58.608Z - [32minfo[39m: IIPProxy response OK - content-type: image/jpeg
+2016-03-08T13:40:58.621Z - [90mexpress_log[39m: [0mGET /imgsrv/get/9ec3485f-345a-8711-9ce9-e2d05a1fe7d9/thumb [32m200 [0m139.822 ms - -[0m
+2016-03-08T13:42:08.623Z - [32minfo[39m: -- start processing - skaegrot.jpg - 4f82a025-755a-839f-2de7-f9a10ce3e715 /tmp/skaegrot.jpg
+2016-03-08T13:42:08.625Z - [32minfo[39m: solrid : 4f82a025-755a-839f-2de7-f9a10ce3e715
+2016-03-08T13:42:08.625Z - [32minfo[39m: invnumber : skaegrot.jpg
+2016-03-08T13:42:08.625Z - [32minfo[39m: resourcePath : /tmp/skaegrot.jpg
+2016-03-08T13:42:08.625Z - [32minfo[39m: filePath name : /tmp/skaegrot.jpg
+2016-03-08T13:42:08.626Z - [32minfo[39m: Converter processing : /tmp/skaegrot.jpg
+2016-03-08T13:42:08.626Z - [32minfo[39m: Image.prototype.process: {
+    "path": "/tmp/skaegrot.jpg",
+    "solrid": "4f82a025-755a-839f-2de7-f9a10ce3e715",
+    "invnumber": "skaegrot.jpg",
+    "image": "/tmp/4f82a025-755a-839f-2de7-f9a10ce3e715.image",
+    "pyr_path": "/tmp/skaegrot.jpg_4f82a025-755a-839f-2de7-f9a10ce3e715_pyr.tif"
+}
+2016-03-08T13:42:08.632Z - [32minfo[39m: read image file /tmp/skaegrot.jpg
+2016-03-08T13:42:08.634Z - [32minfo[39m: detected file type : image/jpeg
+2016-03-08T13:42:08.635Z - [32minfo[39m: create tmp pyr tiff
+2016-03-08T13:42:08.635Z - [32minfo[39m: convert '/tmp/skaegrot.jpg_4f82a025-755a-839f-2de7-f9a10ce3e715_pyr.tif.tmp' -define tiff:tile-geometry=256x256 -compress jpeg 'ptif:/tmp/skaegrot.jpg_4f82a025-755a-839f-2de7-f9a10ce3e715_pyr.tif'
+2016-03-08T13:42:08.678Z - [32minfo[39m: convertPyr Ok
+2016-03-08T13:42:08.678Z - [32minfo[39m: create pyr tiff
+2016-03-08T13:42:08.679Z - [32minfo[39m: deleted temp pyr copy /tmp/skaegrot.jpg_4f82a025-755a-839f-2de7-f9a10ce3e715_pyr.tif.tmp (/tmp/skaegrot.jpg)
+2016-03-08T13:42:08.679Z - [32minfo[39m: delete tmp pyr tiff
+2016-03-08T13:42:08.680Z - [32minfo[39m: Solr Constructor csdev-seb-02:8983
+2016-03-08T13:42:08.755Z - [32minfo[39m: STATUS: 200
+2016-03-08T13:42:08.756Z - [32minfo[39m: HEADERS: {"content-type":"text/plain; charset=UTF-8","transfer-encoding":"chunked"}
+2016-03-08T13:42:08.757Z - [34mdebug[39m: Solr: response received {
+    "responseHeader": {
+        "status": 0,
+        "QTime": 70
+    }
+}
+2016-03-08T13:42:08.758Z - [32minfo[39m: send back to solrDAM: invnumber=skaegrot.jpg, id=4f82a025-755a-839f-2de7-f9a10ce3e715
+2016-03-08T13:42:08.758Z - [32minfo[39m: 4F82A025-755A-839F-2DE7-F9A10CE3E715 ----- processing done *******
+2016-03-08T13:42:14.323Z - [32minfo[39m: Solr Constructor csdev-seb-02:8983
+2016-03-08T13:42:14.338Z - [32minfo[39m: STATUS: 200
+2016-03-08T13:42:14.338Z - [32minfo[39m: HEADERS: {"content-type":"text/plain; charset=UTF-8","transfer-encoding":"chunked"}
+2016-03-08T13:42:14.339Z - [34mdebug[39m: Solr: response received {
+    "responseHeader": {
+        "status": 0,
+        "QTime": 8,
+        "params": {
+            "fl": "link,value,id,type,invnumber",
+            "sort": "created desc",
+            "indent": "true",
+            "q": "(id:\"4f82a025-755a-839f-2de7-f9a10ce3e715\" OR invnumber:\"4f82a025-755a-839f-2de7-f9a10ce3e715\")",
+            "json.nl": "map",
+            "wt": "json"
+        }
+    },
+    "response": {
+        "numFound": 1,
+        "start": 0,
+        "docs": [
+            {
+                "id": "4f82a025-755a-839f-2de7-f9a10ce3e715",
+                "invnumber": "skaegrot.jpg",
+                "type": "jpg",
+                "value": "/tmp/skaegrot.jpg_4f82a025-755a-839f-2de7-f9a10ce3e715_pyr.tif"
+            }
+        ]
+    }
+}
+2016-03-08T13:42:14.341Z - [32minfo[39m: /imgsrv/get - solr says: status=0, QTime=8, fl=link,value,id,type,invnumber, sort=created desc, indent=true, q=(id:"4f82a025-755a-839f-2de7-f9a10ce3e715" OR invnumber:"4f82a025-755a-839f-2de7-f9a10ce3e715"), json.nl=map, wt=json, numFound=1, start=0, docs=[id=4f82a025-755a-839f-2de7-f9a10ce3e715, invnumber=skaegrot.jpg, type=jpg, value=/tmp/skaegrot.jpg_4f82a025-755a-839f-2de7-f9a10ce3e715_pyr.tif]
+2016-03-08T13:42:14.341Z - [32minfo[39m: IIPProxy Constructor: 172.20.1.203/iipsrv/iipsrv.fcgi
+2016-03-08T13:42:14.341Z - [32minfo[39m: IIPProxy Constructor - image size: 100
+2016-03-08T13:42:14.342Z - [32minfo[39m: IIPProxy requested uri http://172.20.1.203/iipsrv/iipsrv.fcgi?FIF=/tmp/skaegrot.jpg_4f82a025-755a-839f-2de7-f9a10ce3e715_pyr.tif&WID=100&CVT=jpeg
+2016-03-08T13:42:14.358Z - [32minfo[39m: IIPProxy response OK - content-type: image/jpeg
+2016-03-08T13:42:14.367Z - [90mexpress_log[39m: [0mGET /imgsrv/get/4f82a025-755a-839f-2de7-f9a10ce3e715/thumb [32m200 [0m48.224 ms - -[0m
+2016-03-08T13:42:22.093Z - [32minfo[39m: -- start processing - test1(2).jpg - 5e2e9bba-d884-82ae-173c-1942d4a44358 /tmp/test1(2).jpg
+2016-03-08T13:42:22.094Z - [32minfo[39m: solrid : 5e2e9bba-d884-82ae-173c-1942d4a44358
+2016-03-08T13:42:22.095Z - [32minfo[39m: invnumber : test1(2).jpg
+2016-03-08T13:42:22.095Z - [32minfo[39m: resourcePath : /tmp/test1(2).jpg
+2016-03-08T13:42:22.095Z - [32minfo[39m: filePath name : /tmp/test1(2).jpg
+2016-03-08T13:42:22.096Z - [32minfo[39m: Converter processing : /tmp/test1(2).jpg
+2016-03-08T13:42:22.096Z - [32minfo[39m: Image.prototype.process: {
+    "path": "/tmp/test1(2).jpg",
+    "solrid": "5e2e9bba-d884-82ae-173c-1942d4a44358",
+    "invnumber": "test1(2).jpg",
+    "image": "/tmp/5e2e9bba-d884-82ae-173c-1942d4a44358.image",
+    "pyr_path": "/tmp/test1(2).jpg_5e2e9bba-d884-82ae-173c-1942d4a44358_pyr.tif"
+}
+2016-03-08T13:42:22.102Z - [32minfo[39m: read image file /tmp/test1(2).jpg
+2016-03-08T13:42:22.103Z - [32minfo[39m: detected file type : image/jpeg
+2016-03-08T13:42:22.104Z - [32minfo[39m: create tmp pyr tiff
+2016-03-08T13:42:22.104Z - [32minfo[39m: convert '/tmp/test1(2).jpg_5e2e9bba-d884-82ae-173c-1942d4a44358_pyr.tif.tmp' -define tiff:tile-geometry=256x256 -compress jpeg 'ptif:/tmp/test1(2).jpg_5e2e9bba-d884-82ae-173c-1942d4a44358_pyr.tif'
+2016-03-08T13:42:22.188Z - [32minfo[39m: convertPyr Ok
+2016-03-08T13:42:22.188Z - [32minfo[39m: create pyr tiff
+2016-03-08T13:42:22.190Z - [32minfo[39m: deleted temp pyr copy /tmp/test1(2).jpg_5e2e9bba-d884-82ae-173c-1942d4a44358_pyr.tif.tmp (/tmp/test1(2).jpg)
+2016-03-08T13:42:22.190Z - [32minfo[39m: delete tmp pyr tiff
+2016-03-08T13:42:22.190Z - [32minfo[39m: Solr Constructor csdev-seb-02:8983
+2016-03-08T13:42:22.276Z - [32minfo[39m: STATUS: 200
+2016-03-08T13:42:22.277Z - [32minfo[39m: HEADERS: {"content-type":"text/plain; charset=UTF-8","transfer-encoding":"chunked"}
+2016-03-08T13:42:22.277Z - [34mdebug[39m: Solr: response received {
+    "responseHeader": {
+        "status": 0,
+        "QTime": 77
+    }
+}
+2016-03-08T13:42:22.278Z - [32minfo[39m: send back to solrDAM: invnumber=test1(2).jpg, id=5e2e9bba-d884-82ae-173c-1942d4a44358
+2016-03-08T13:42:22.279Z - [32minfo[39m: 5E2E9BBA-D884-82AE-173C-1942D4A44358 ----- processing done *******
+2016-03-08T13:42:22.293Z - [32minfo[39m: Solr Constructor csdev-seb-02:8983
+2016-03-08T13:42:22.299Z - [32minfo[39m: STATUS: 200
+2016-03-08T13:42:22.299Z - [32minfo[39m: HEADERS: {"content-type":"text/plain; charset=UTF-8","transfer-encoding":"chunked"}
+2016-03-08T13:42:22.300Z - [34mdebug[39m: Solr: response received {
+    "responseHeader": {
+        "status": 0,
+        "QTime": 2,
+        "params": {
+            "fl": "link,value,id,type,invnumber",
+            "sort": "created desc",
+            "indent": "true",
+            "q": "(id:\"5e2e9bba-d884-82ae-173c-1942d4a44358\" OR invnumber:\"5e2e9bba-d884-82ae-173c-1942d4a44358\")",
+            "json.nl": "map",
+            "wt": "json"
+        }
+    },
+    "response": {
+        "numFound": 1,
+        "start": 0,
+        "docs": [
+            {
+                "id": "5e2e9bba-d884-82ae-173c-1942d4a44358",
+                "invnumber": "test1(2).jpg",
+                "type": "jpg",
+                "value": "/tmp/test1(2).jpg_5e2e9bba-d884-82ae-173c-1942d4a44358_pyr.tif"
+            }
+        ]
+    }
+}
+2016-03-08T13:42:22.301Z - [32minfo[39m: /imgsrv/get - solr says: status=0, QTime=2, fl=link,value,id,type,invnumber, sort=created desc, indent=true, q=(id:"5e2e9bba-d884-82ae-173c-1942d4a44358" OR invnumber:"5e2e9bba-d884-82ae-173c-1942d4a44358"), json.nl=map, wt=json, numFound=1, start=0, docs=[id=5e2e9bba-d884-82ae-173c-1942d4a44358, invnumber=test1(2).jpg, type=jpg, value=/tmp/test1(2).jpg_5e2e9bba-d884-82ae-173c-1942d4a44358_pyr.tif]
+2016-03-08T13:42:22.302Z - [32minfo[39m: IIPProxy Constructor: 172.20.1.203/iipsrv/iipsrv.fcgi
+2016-03-08T13:42:22.303Z - [32minfo[39m: IIPProxy Constructor - image size: 100
+2016-03-08T13:42:22.303Z - [32minfo[39m: IIPProxy requested uri http://172.20.1.203/iipsrv/iipsrv.fcgi?FIF=/tmp/test1(2).jpg_5e2e9bba-d884-82ae-173c-1942d4a44358_pyr.tif&WID=100&CVT=jpeg
+2016-03-08T13:42:22.316Z - [32minfo[39m: IIPProxy response OK - content-type: image/jpeg
+2016-03-08T13:42:22.333Z - [90mexpress_log[39m: [0mGET /imgsrv/get/5e2e9bba-d884-82ae-173c-1942d4a44358/thumb [32m200 [0m32.066 ms - -[0m
