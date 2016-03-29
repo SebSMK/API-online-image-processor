@@ -83,7 +83,8 @@
       for ( i = prev_count_files + waiting, j = 0; i < prev_count_files + files.length + waiting; i++, j++ ) {
         //document.getElementById('dropzone').innerHTML += '<div class="file" id="file-' + i + '"><div class="name">' + files[j].name + '</div><div class="progress">Waiting...</div><div class="clear"></div></div>';        
         var aEl  = document.createElement("div");
-        aEl.innerHTML = '<div class="file" id="file-' + i + '"><div class="name">' + files[j].name + '</div><div class="progress">Waiting...</div><div class="clear"></div></div>';        
+        //aEl.innerHTML = '<div class="file" id="file-' + i + '"><div class="name">' + files[j].name + '</div><div class="progress">Waiting...</div><div class="progressbar"></div><div class="clear"></div></div>';
+        aEl.innerHTML = '<div class="file" id="file-' + i + '"><div class="progress">Waiting...</div><div class="progressbar"></div><div class="clear"></div></div>';        
         document.getElementById('dropzone').appendChild(aEl);
       }
 
@@ -102,43 +103,66 @@
     var current_file = {
       name: all_files[current_file_id].name,
       type: all_files[current_file_id].type,
+      size: all_files[current_file_id].size,
       contents: evt.target.result
     };    
 
     var xhr = new XMLHttpRequest();
-    xhr.open('POST', '/upload', true);
-    xhr.onreadystatechange = function () {
-      if ( xhr.readyState == 4 ) {
-        if ( document.getElementById('file-' + current_file_id) ) {
-          if ( xhr.status === 200 ) {            
-            var jsonRes = JSON.parse(xhr.response);
-            var formatUrl = JSON.parse(xhr.response).response.formatUrl; 
-            var zoomUrl = JSON.parse(xhr.response).response.zoomUrl; 
-            var imageid = JSON.parse(xhr.response).response.id;              
-           
+    
+    if (xhr.upload && current_file.type.indexOf("image/") == 0 && current_file.size <= 50000000) {
+    
+      // create progress bar
+  		var o = document.getElementById('file-' + current_file_id).querySelector('.progress');
+  		var progressbar = o.appendChild(document.createElement("p"));
+  		//progressbar.appendChild(document.createTextNode("upload " + current_file.name));
+      
+      // progress bar
+  		xhr.upload.addEventListener("progress", function(e) {
+  			var pc = parseInt(100 - (e.loaded / e.total * 100));
+  			progressbar.style.backgroundPosition = pc + "% 0";
+  		}, false);
+    
+      xhr.open('POST', '/upload', true);
+      xhr.onreadystatechange = function () {
+        if ( xhr.readyState == 4 ) {
+          if ( document.getElementById('file-' + current_file_id) ) {
             
-            document.getElementById('file-' + current_file_id).querySelector('.progress').className = 'progress';                     
-            document.getElementById('file-' + current_file_id).querySelector('.progress').innerHTML = 'Uploaded';                       
-                                                
-            document.getElementById('file-' + current_file_id).innerHTML += '<a></a>';
-            var a = document.getElementById('file-' + current_file_id).querySelector('a');
-            a.href = "#";
-            a.innerHTML += '<div imageid="' + imageid + '" class="image"><img src="' + formatUrl + '/thumb"></a></div>';
-            a.getElementsByTagName('div')[0].className += " selected";  
-            a.addEventListener('click', selectImage, false);
-            
-            refreshViewer();
+            progressbar.className = (xhr.status == 200 ? "success" : "failure");
           
-          } else {
-            document.getElementById('file-' + current_file_id).querySelector('.progress').innerHTML = 'Failed';
+            if ( xhr.status === 200 ) {            
+              var jsonRes = JSON.parse(xhr.response);
+              var formatUrl = JSON.parse(xhr.response).response.formatUrl; 
+              var zoomUrl = JSON.parse(xhr.response).response.zoomUrl; 
+              var imageid = JSON.parse(xhr.response).response.id;                                         
+              
+              //document.getElementById('file-' + current_file_id).querySelector('.progress').className = 'progress';                     
+              document.getElementById('file-' + current_file_id).querySelector('.progress').innerHTML = current_file.name + ' uploaded' + document.getElementById('file-' + current_file_id).querySelector('.progress').getElementsByTagName('p')[0].outerHTML;                       
+                                                  
+              document.getElementById('file-' + current_file_id).innerHTML += '<a></a>';
+              var a = document.getElementById('file-' + current_file_id).querySelector('a');
+              a.href = "#";
+              a.innerHTML += '<div imageid="' + imageid + '" class="image"><img src="' + formatUrl + '/thumb"></a></div>';
+              a.getElementsByTagName('div')[0].className += " selected";  
+              a.addEventListener('click', selectImage, false);
+              
+              refreshViewer();
+            
+            } else {
+              document.getElementById('file-' + current_file_id).querySelector('.progress').innerHTML = 'Failed';
+            }
           }
+          all_files[current_file_id] = 1;
+          current_file_id++;
+          handleNextFile();
         }
-        all_files[current_file_id] = 1;
-        current_file_id++;
-        handleNextFile();
-      }
-    };
-    xhr.send(JSON.stringify(current_file));
+      };
+      xhr.send(JSON.stringify(current_file));    
+    }
+    else{
+      document.getElementById('file-' + current_file_id).querySelector('.progress').innerHTML = 'Error on init';
+    }
+    
+    
   };
 
   var handleNextFile = function () {
@@ -148,7 +172,7 @@
       locked = true;
 
       document.getElementById('file-' + current_file_id).querySelector('.progress').innerHTML = 'Uploading...';
-      document.getElementById('file-' + current_file_id).querySelector('.progress').className += ' blink_me';
+      //document.getElementById('file-' + current_file_id).querySelector('.progress').className += ' blink_me';
       var current_file = all_files[current_file_id];
 
       var reader = new FileReader();

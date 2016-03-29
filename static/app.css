@@ -78,8 +78,11 @@ input[type="file"] {
 }
 
 #dropzone .file .progress {
-	float: right;
-	width: 10%;
+	//float: right;
+	//width: 10%;
+  display: inline-block;
+  overflow: hidden;
+  width: 100%;
 }
 
 .footer {
