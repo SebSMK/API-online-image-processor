@@ -3,10 +3,11 @@
   'use strict';
 
   var all_files = [];
+  var all_file_list;
   var current_file_id = 0;
   var locked = false;
   var prev_count_files = 0;
-  var waiting = 0;
+  var waiting = 0;  
   
   var zoomServer = "http://csdev-seb-02:4000/imgsrv/test/zoom";
 
@@ -84,7 +85,8 @@
         //document.getElementById('dropzone').innerHTML += '<div class="file" id="file-' + i + '"><div class="name">' + files[j].name + '</div><div class="progress">Waiting...</div><div class="clear"></div></div>';        
         var aEl  = document.createElement("div");
         //aEl.innerHTML = '<div class="file" id="file-' + i + '"><div class="name">' + files[j].name + '</div><div class="progress">Waiting...</div><div class="progressbar"></div><div class="clear"></div></div>';
-        aEl.innerHTML = '<div class="file" id="file-' + i + '"><div class="progress">Waiting...</div><div class="progressbar"></div><div class="clear"></div></div>';        
+        //aEl.innerHTML = '<div class="file" id="file-' + i + '"><div class="progress">Waiting...</div><div class="progressbar"></div><div class="clear"></div></div>';
+        aEl.innerHTML = '<div class="file" id="file-' + i + '"><div class="progress">Waiting...</div><progress class="progressbar"></progress><div class="clear"></div></div>';        
         document.getElementById('dropzone').appendChild(aEl);
       }
 
@@ -92,7 +94,7 @@
 
       if ( ! locked ) {
         waiting -= count;
-        all_files.push.apply(all_files, files);
+        all_files.push.apply(all_files, files);        
         handleNextFile();
       }
     }
@@ -107,27 +109,34 @@
       contents: evt.target.result
     };    
 
+    var formData = new FormData();
     var xhr = new XMLHttpRequest();
     
     if (xhr.upload && current_file.type.indexOf("image/") == 0 && current_file.size <= 50000000) {
     
       // create progress bar
-  		var o = document.getElementById('file-' + current_file_id).querySelector('.progress');
-  		var progressbar = o.appendChild(document.createElement("p"));
+  		//var o = document.getElementById('file-' + current_file_id).querySelector('.progress');
+  		//var progressbar = o.appendChild(document.createElement("p"));
   		//progressbar.appendChild(document.createTextNode("upload " + current_file.name));
+      var progress = document.getElementById('file-' + current_file_id).querySelector('progress');
+      progress.max = current_file.size;
       
-      // progress bar
+      // progress bar      
   		xhr.upload.addEventListener("progress", function(e) {
-  			var pc = parseInt(100 - (e.loaded / e.total * 100));
-  			progressbar.style.backgroundPosition = pc + "% 0";
+  			//var pc = parseInt(100 - (e.loaded / e.total * 100));
+  			//progressbar.style.backgroundPosition = pc + "% 0";
+        progress.value = e.loaded;                
   		}, false);
-    
-      xhr.open('POST', '/upload', true);
+          
+      formData.append('files', all_files[current_file_id]);
+      
+      xhr.open('POST', '/upfor', true);                  
+      
       xhr.onreadystatechange = function () {
         if ( xhr.readyState == 4 ) {
           if ( document.getElementById('file-' + current_file_id) ) {
             
-            progressbar.className = (xhr.status == 200 ? "success" : "failure");
+            //progressbar.className = (xhr.status == 200 ? "success" : "failure");
           
             if ( xhr.status === 200 ) {            
               var jsonRes = JSON.parse(xhr.response);
@@ -136,7 +145,7 @@
               var imageid = JSON.parse(xhr.response).response.id;                                         
               
               //document.getElementById('file-' + current_file_id).querySelector('.progress').className = 'progress';                     
-              document.getElementById('file-' + current_file_id).querySelector('.progress').innerHTML = current_file.name + ' uploaded' + document.getElementById('file-' + current_file_id).querySelector('.progress').getElementsByTagName('p')[0].outerHTML;                       
+              //document.getElementById('file-' + current_file_id).querySelector('.progress').innerHTML = current_file.name + ' uploaded' + document.getElementById('file-' + current_file_id).querySelector('.progress').getElementsByTagName('p')[0].outerHTML;                       
                                                   
               document.getElementById('file-' + current_file_id).innerHTML += '<a></a>';
               var a = document.getElementById('file-' + current_file_id).querySelector('a');
@@ -156,7 +165,11 @@
           handleNextFile();
         }
       };
-      xhr.send(JSON.stringify(current_file));    
+            
+      //xhr.send(JSON.stringify(current_file));
+      
+      
+      xhr.send(formData);    
     }
     else{
       document.getElementById('file-' + current_file_id).querySelector('.progress').innerHTML = 'Error on init';

@@ -2,13 +2,30 @@ var config = require('./config');
 var converter = require('./converter');
 var fs = require('fs');
 var Q = require('q');
+var formidable = require('formidable');
+var util = require('util');
 
 function home(response, postData) {
   response.writeHead(200, {'Content-Type': 'text/html'});
   response.end(fs.readFileSync('./static/index.html'));
 }
 
-function upload(response, postData) {
+function upload(res, postData) {
+
+  // parse a file upload
+    var form = new formidable.IncomingForm();
+    
+    form.encoding = 'binary';
+
+    form.parse(postData, function(err, fields, files) {
+      res.writeHead(200, {'content-type': 'text/plain'});
+      res.write('received upload:\n\n');
+      res.end(util.inspect({fields: fields, files: files}));
+      
+      response.end(JSON.stringify(res, null, 4));
+    });
+
+/*
 
   var file = JSON.parse(postData);
   var fileRootName = file.name.split('.').shift();
@@ -64,6 +81,8 @@ function upload(response, postData) {
       response.end();        
     })                        
   }
+  
+  */
 }
 
 function serveStatic(response, pathname, postData) {
