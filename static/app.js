@@ -1,10 +1,12 @@
+var current_file_id = 0;
+
 ;(function (window, document) {
 
   'use strict';
 
   var all_files = [];
   var all_file_list;
-  var current_file_id = 0;
+//  var current_file_id = 0;
   var locked = false;
   var prev_count_files = 0;
   var waiting = 0;  
@@ -145,7 +147,9 @@
               var imageid = JSON.parse(xhr.response).response.id;                                         
               
               //document.getElementById('file-' + current_file_id).querySelector('.progress').className = 'progress';                     
-              //document.getElementById('file-' + current_file_id).querySelector('.progress').innerHTML = current_file.name + ' uploaded' + document.getElementById('file-' + current_file_id).querySelector('.progress').getElementsByTagName('p')[0].outerHTML;                       
+              //document.getElementById('file-' + current_file_id).querySelector('.progress').innerHTML = current_file.name + ' uploaded' + document.getElementById('file-' + current_file_id).querySelector('.progress').getElementsByTagName('p')[0].outerHTML;
+              document.getElementById('file-' + current_file_id).querySelector('.progress').innerHTML = current_file.name + ' uploaded';                       
+              
                                                   
               document.getElementById('file-' + current_file_id).innerHTML += '<a></a>';
               var a = document.getElementById('file-' + current_file_id).querySelector('a');

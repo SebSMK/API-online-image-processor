@@ -10,3 +10,5 @@ var routes = {
 };
 
 server.start(router.route, routes);
+
+--> try node test.js instead!!
