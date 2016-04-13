@@ -13,6 +13,7 @@ var current_file;
   var waiting = 0;  
   
   var zoomServer = "http://172.20.1.203:4000/imgsrv/test/zoom/"; 
+  var maxSelImages = 2;
   
   var socket = io.connect('http://172.20.1.203:4000'); 
   socket.on('converting', function (data) {
@@ -48,21 +49,32 @@ var current_file;
       return !!el.className.match(new RegExp('(\\s|^)' + className + '(\\s|$)'))
   };
   
-  var selectImage = function (evt) {
-    evt.stopPropagation();
-    evt.preventDefault();
+  var selectImage = function (selector) {           
     
-    var classname = "selected"
-    var el = document.getElementsByClassName(classname);
+    var classSel = "selected";
     
-    for (var i = 0, length = el.length; i < length; i++) {
-      el[0].className = el[0].className.replace(classname,"");
-    }
-    
-    evt.currentTarget.getElementsByTagName('div')[0].className += " selected";         
+    if(selector.className.indexOf(classSel) > -1){
+      selector.className = selector.className.replace(classSel,"");    
+    }else{
+      var el = document.getElementsByClassName(classSel);
+      
+      if( el.length >= maxSelImages){
+        for (var i = 0, length = el.length; i < length; i++) {
+          el[0].className = el[0].className.replace(classSel,"");
+        }
+      }    
+      
+      selector.className += " " + classSel;    
+    }                 
     
     refreshViewer();
                  
+  };
+  
+  var selectImageEvent = function (evt) {
+    evt.stopPropagation();
+    evt.preventDefault(); 
+    selectImage(evt.currentTarget.querySelector('div'));
   };
   
   var refreshViewer = function () {       
@@ -75,14 +87,14 @@ var current_file;
       zoomIds.push(zoomId);              
     }     
     
-    if (zoomIds.length > 0){      
+    //if (zoomIds.length > 0){      
       //document.getElementById('viewzone').querySelector('iframe').src = zoomServer + '/' + zoomIds[0].id;
             
-      document.getElementById("viewForm").action = zoomServer;
+      //document.getElementById("viewForm").action = zoomServer;
       document.getElementById("viewForm").action = zoomServer;
       document.getElementById('images').value = JSON.stringify(zoomIds);
       document.getElementById("viewForm").submit();
-    }                
+    //}                
   };
 
   var drop = function (evt) {
@@ -179,8 +191,10 @@ var current_file;
               var a = document.getElementById('file-' + current_file_id).querySelector('a');
               a.href = "#";
               a.innerHTML += '<div imageid="' + imageid + '" class="image"><img src="' + formatUrl + '/thumb"></a></div>';
-              a.getElementsByTagName('div')[0].className += " selected";  
-              a.addEventListener('click', selectImage, false);
+              //a.querySelector('div').className += " selected";  
+              a.addEventListener('click', selectImageEvent, false);
+                      
+              selectImage(a.querySelector('div'));
               
               refreshViewer();
                             
