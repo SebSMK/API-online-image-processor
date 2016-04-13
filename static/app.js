@@ -12,7 +12,7 @@ var current_file;
   var prev_count_files = 0;
   var waiting = 0;  
   
-  var zoomServer = "http://csdev-seb-02:4000/imgsrv/test/zoom"; 
+  var zoomServer = "http://172.20.1.203:4000/imgsrv/test/zoom/"; 
   
   var socket = io.connect('http://172.20.1.203:4000'); 
   socket.on('converting', function (data) {
