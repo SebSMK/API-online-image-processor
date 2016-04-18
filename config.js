@@ -24,6 +24,6 @@ module.exports = {
     host: 'csdev-seb-02',
     port: 4000,
     path: '/imgsrv/test/zoom'
-  },
+  }
     
 };

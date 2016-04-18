@@ -12,8 +12,54 @@ var current_file;
   var prev_count_files = 0;
   var waiting = 0;  
   
-  var zoomServer = "http://172.20.1.203:4000/imgsrv/test/zoom/"; 
+  var zoomServer = "http://172.20.1.203:4000/imgsrv/test/zoom/";
+  var formatServer = "http://172.20.1.203:4000/imgsrv/get/" 
   var maxSelImages = 2;
+  
+  
+  var insertGetParams = function(){
+     var params = parse('id');
+    
+     for ( var i = 0; i < params.length; i++ ) {
+        var imid = params[i];               
+        var aEl  = document.createElement("div");        
+        aEl.innerHTML = '<div class="file" id="file-' + i + '"><div class="progress">image' + i  + ' ready' + '</div><div class="clear"></div></div>';
+        
+        var a = document.createElement("a");        
+        a.href = "#";
+        a.innerHTML += '<div imageid="' + imid + '" class="image"><img src="' + formatServer + imid + '/thumb"></a></div>';
+        
+        aEl.appendChild(a);                 
+        document.getElementById('dropzone').appendChild(aEl);                                             
+        
+        // add event listener
+        document.getElementById('file-' + current_file_id).querySelector('a');                                                  
+        a.addEventListener('click', selectImageEvent, false);
+                
+        selectImage(a.querySelector('div'));
+        
+        refreshViewer();
+                      
+        all_files[i] = 1;
+        current_file_id++;                
+      } 
+  }
+  
+  var parse = function(val) {
+    var result = [],
+        tmp = [];
+    location.hash
+    //.replace ( "?", "" ) 
+    // this is better, there might be a question mark inside
+    .substr(1)
+        .split("&")
+        .forEach(function (item) {
+            tmp = item.split("=");
+            if (tmp[0].indexOf(val) == 0) result.push(decodeURIComponent(tmp[1]));
+        });
+    return result;
+  };
+  
   
   var socket = io.connect('http://172.20.1.203:4000'); 
   socket.on('converting', function (data) {
@@ -118,11 +164,8 @@ var current_file;
 
       document.getElementById('dropzone').className = 'queue';
 
-      for ( i = prev_count_files + waiting, j = 0; i < prev_count_files + files.length + waiting; i++, j++ ) {
-        //document.getElementById('dropzone').innerHTML += '<div class="file" id="file-' + i + '"><div class="name">' + files[j].name + '</div><div class="progress">Waiting...</div><div class="clear"></div></div>';        
-        var aEl  = document.createElement("div");
-        //aEl.innerHTML = '<div class="file" id="file-' + i + '"><div class="name">' + files[j].name + '</div><div class="progress">Waiting...</div><div class="progressbar"></div><div class="clear"></div></div>';
-        //aEl.innerHTML = '<div class="file" id="file-' + i + '"><div class="progress">Waiting...</div><div class="progressbar"></div><div class="clear"></div></div>';
+      for ( i = prev_count_files + waiting, j = 0; i < prev_count_files + files.length + waiting; i++, j++ ) {                
+        var aEl  = document.createElement("div");        
         aEl.innerHTML = '<div class="file" id="file-' + i + '"><div class="progress">Waiting...</div><progress class="progressbar"></progress><div class="clear"></div></div>';        
         document.getElementById('dropzone').appendChild(aEl);
       }
@@ -196,6 +239,8 @@ var current_file;
                       
               selectImage(a.querySelector('div'));
               
+              window.location.hash += '&id' + parseInt(current_file_id + 1) + '=' + imageid;
+              
               refreshViewer();
                             
               all_files[current_file_id] = 1;
@@ -252,6 +297,8 @@ var current_file;
     var evt = new MouseEvent('click');
     document.getElementById('addFile').dispatchEvent(evt);
   };
+  
+  insertGetParams();
 
   var dropzone = document.getElementById('dropzone');
   //dropzone.addEventListener('click', openFileDialog, false);
