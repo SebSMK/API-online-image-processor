@@ -5,11 +5,16 @@ var util = require('util');
 var config = require('./config');
 var fs = require('fs');
 var converter = require('./converter');
+var path = require('path');
 
 app.use(express.static(__dirname + '/static'));
 
-app.get('/',function(req,res){       
-  res.sendFile('index.html');
+app.get('/compare',function(req,res){         
+  res.sendFile(path.join(__dirname, '/static', 'compare.html'));
+});
+
+app.get('/crop',function(req,res){ 
+  res.sendFile(path.join(__dirname, '/static', 'crop.html'));        
 });
 
 app.post('/upfor', function(req, response) {

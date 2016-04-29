@@ -9,7 +9,7 @@
 <body>
   <header class="main-header">
 		<h1 class="branding">
-			<a href="#">Statens Museum for Kunst</a> 
+			<a href="">Statens Museum for Kunst</a> 
 				<i>image comparator API&nbsp;</i><span>prototype</span>				
 		</h1>										
 
@@ -30,7 +30,30 @@
   <div class="footer">
     SMK APIs
   </div>
-  <script src="socket.io.js"></script> 
+  <script src="socket.io.js"></script>    
+  <script src="config.js"></script> 
+  
+  <script >         
+    var zoomServer = compareServer;
+    var maxImageSize = 100000000;
+    var maxSelImages = 2;
+    
+    var refreshViewer = function () {       
+      var selected = document.getElementById('dropzone').getElementsByClassName('selected');
+      var zoomIds = [];
+      
+      for (var i = 0, length = selected.length; i < length; i++) {
+        var zoomId = {};      
+        zoomId['id'] = selected[i].getAttribute('imageid');      
+        zoomIds.push(zoomId);              
+      }     
+           
+      document.getElementById("viewForm").action = zoomServer;
+      document.getElementById('images').value = JSON.stringify(zoomIds);
+      document.getElementById("viewForm").submit();
+                   
+    };
+  </script>   
   <script src="app.js"></script>   
   
   <script>function open_new(link) {window.open(link);}</script>

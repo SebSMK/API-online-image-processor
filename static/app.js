@@ -10,12 +10,7 @@ var current_file;
 //  var current_file_id = 0;
   var locked = false;
   var prev_count_files = 0;
-  var waiting = 0;  
-  
-  var zoomServer = "http://172.20.1.203:4000/imgsrv/test/zoom/";
-  var formatServer = "http://172.20.1.203:4000/imgsrv/get/" 
-  var maxSelImages = 2;
-  
+  var waiting = 0;        
   
   var insertGetParams = function(){
      var params = parse('id');
@@ -61,7 +56,7 @@ var current_file;
   };
   
   
-  var socket = io.connect('http://172.20.1.203:4000'); 
+  var socket = io.connect(socketIO); 
   socket.on('converting', function (data) {
     if(data) {                    
         if (data.process != 'end'){
@@ -122,14 +117,14 @@ var current_file;
     evt.preventDefault(); 
     selectImage(evt.currentTarget.querySelector('div'));
   };
-  
+/*  
   var refreshViewer = function () {       
     var selected = document.getElementById('dropzone').getElementsByClassName('selected');
     var zoomIds = [];
     
     for (var i = 0, length = selected.length; i < length; i++) {
       var zoomId = {};      
-      zoomId['id'] = selected[i].getAttribute('imageid');
+      zoomId['id'] = selected[i].getAttribute('imageid');      
       zoomIds.push(zoomId);              
     }     
     
@@ -142,7 +137,7 @@ var current_file;
       document.getElementById("viewForm").submit();
     //}                
   };
-
+*/
   var drop = function (evt) {
     noopHandler(evt);
     handleFiles(evt.dataTransfer.files);
@@ -192,7 +187,7 @@ var current_file;
     var formData = new FormData();
     var xhr = new XMLHttpRequest();
     
-    if (xhr.upload && current_file.type.indexOf("image/") == 0 && current_file.size <= 50000000) {
+    if (xhr.upload && current_file.type.indexOf("image/") == 0 && current_file.size <= maxImageSize) {
     
       // create progress bar
   		//var o = document.getElementById('file-' + current_file_id).querySelector('.progress');
@@ -268,7 +263,7 @@ var current_file;
       xhr.send(formData);    
     }
     else{
-      document.getElementById('file-' + current_file_id).querySelector('.progress').innerHTML = 'Error on init';
+      document.getElementById('file-' + current_file_id).querySelector('.progress').innerHTML = 'Error on init: maxImageSize exceeded.';
     }
     
     
