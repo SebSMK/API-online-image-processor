@@ -11,7 +11,7 @@ module.exports = {
   
   convert_API_url: {
     host: 'csdev-seb-02',
-    port: 4000,
+    port: 4003,
     //host: 'http://demoapi.smk.dk',    
     //port: 80,
     path: '/imgsrv/test/add'
