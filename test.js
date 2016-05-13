@@ -56,6 +56,6 @@ app.post('/upfor', function(req, response) {
   });
 });
 
-app.listen(8003, function () {
-  console.log('Example app listening on port 8003!');
+app.listen(config.port, function () {
+  console.log('Example app listening on port ' + config.port);
 });

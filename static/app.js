@@ -1,3 +1,7 @@
+// display version
+var aVer = document.querySelector('header h1 span');
+aVer.innerHTML += ' - v.'  + version;
+
 var current_file_id = 0;  
 var current_file;
 

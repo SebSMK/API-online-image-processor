@@ -1,6 +1,5 @@
 @CHARSET "ISO-8859-1";
 
-
 progress[value] {
   /* Reset the default appearance */
   -webkit-appearance: none;
