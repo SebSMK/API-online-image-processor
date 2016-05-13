@@ -29,7 +29,7 @@ function post(filepath) {
     resp.on('end', function() {
         if (data !== '' && data.indexOf('"error":') == -1){
             var jsonData = JSON.parse(data);
-            console.log("converter: response received", JSON.stringify(jsonData, null, 4));
+            //console.log("converter: response received", JSON.stringify(jsonData, null, 4));
             
             var id = jsonData.response.id;
             var formatUrl =sprintf('http://%s:%s%s/%s', config.format_API_url.host, config.format_API_url.port, config.format_API_url.path, id);

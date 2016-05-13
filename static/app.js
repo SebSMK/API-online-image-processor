@@ -228,7 +228,7 @@ var current_file;
               document.getElementById('file-' + current_file_id).innerHTML += '<a></a>';
               var a = document.getElementById('file-' + current_file_id).querySelector('a');
               a.href = "#";
-              a.innerHTML += '<div imageid="' + imageid + '" class="image"><img src="' + formatUrl + '/thumb"></a></div>';
+              a.innerHTML += '<div imageid="' + imageid + '" class="image"><img src="' + formatServer + imageid + '/thumb"></a></div>';
               //a.querySelector('div').className += " selected";  
               a.addEventListener('click', selectImageEvent, false);
                       

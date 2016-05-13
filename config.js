@@ -10,19 +10,22 @@ module.exports = {
   
   convert_API_url: {
     host: 'csdev-seb-02',
-    port: 4000,
+    //port: 4000,
+    port: 4003,
     path: '/imgsrv/test/add'
   },
   
   format_API_url: {
     host: 'csdev-seb-02',
-    port: 4000,
+    //port: 4000,
+    port: 4003,
     path: '/imgsrv/get'
   },
   
   zoom_API_url: {
     host: 'csdev-seb-02',
-    port: 4000,
+    //port: 4000,
+    port: 4003,
     path: '/imgsrv/test/zoom'
   }
     
