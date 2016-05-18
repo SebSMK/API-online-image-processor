@@ -39,18 +39,18 @@ function post(filepath) {
             
             deferred.resolve(jsonData);
         }else{
-            console.error("empty postjson result returned");
+            //console.error("empty postjson result returned");
             deferred.reject(data);
         }
     });
     resp.on('error', function(err) {
-        console.error("http.request postjson error: " + err);
+        //console.error("http.request postjson error: " + err);
         deferred.reject(err);
     });
   });
           
   post.on('error', function(e) {
-    console.error("converter:", e.message);
+    //console.error("converter:", e.message);
     deferred.reject("converter:" + e.message);
   });
   

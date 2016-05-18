@@ -36,7 +36,7 @@ app.post('/upfor', function(req, response) {
     //fs.rename(files.files.path, 'yournewfilename', function (err) { throw err; });
   
     if (err) {
-      console.log(err);
+      //console.log(err);
       response.statusCode = 500;
       response.end();       
     } 
@@ -48,7 +48,7 @@ app.post('/upfor', function(req, response) {
       response.end(JSON.stringify(res, null, 4));
     })
     .catch(function(err) {
-      console.error(err);                    
+      //console.error(err);                    
       response.statusCode = 500;
       response.end();        
     })                  
@@ -56,6 +56,8 @@ app.post('/upfor', function(req, response) {
   });
 });
 
-app.listen(config.port, function () {
+var server = app.listen(config.port, function () {
   console.log('Example app listening on port ' + config.port);
 });
+
+server = 1000 * 60 * 60; 

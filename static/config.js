@@ -1,4 +1,4 @@
-var version = '0.001.015';
+var version = '0.001.016';
 
 //var cropServer = "http://iip.smk.dk:4000/imgsrv/zoom/osd/"; 
 var cropServer = "http://demoapi.smk.dk/zoom/osd/"; 

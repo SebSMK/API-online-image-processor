@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>SMK | Image Cropper</title>
+  <link href="app.css" rel="stylesheet">
+  <link href="app_smk.css" rel="stylesheet">
+  <link href="smk_modif.css" rel="stylesheet">
+</head>
+<body>
+  <header class="main-header">
+		<h1 class="branding">
+			<a href="">Statens Museum for Kunst</a> 
+				<i>image cropper API&nbsp;</i><span>prototype</span>				
+		</h1>										
+
+	</header>
+  <div class="dropzone" id="dropzone">
+    <span>Drop billedfilen her...</span>
+  </div>
+  <div class="viewzone" id="viewzone">
+    <form id="viewForm" target="my-iframe" method="post">
+      <input type='hidden' id='images' name='images' />      
+    </form>
+		
+
+    <iframe name="my-iframe"></iframe>
+    <span></span>
+  </div>
+  <input type="file" id="addFile" multiple>
+  <div class="footer">
+    SMK APIs
+  </div>
+  <script src="socket.io.js"></script> 
+  <script src="config.js"></script> 
+  
+  <script >         
+    var zoomServer = cropServer;
+    var maxImageSize = 100000000;   
+    var maxSelImages = 1;    
+    
+    var refreshViewer = function () {       
+      var selected = document.getElementById('dropzone').getElementsByClassName('selected');
+      var zoomIds = [];
+      
+      for (var i = 0, length = selected.length; i < length; i++) {
+        var zoomId = {};      
+        zoomId['id'] = selected[i].getAttribute('imageid');      
+        zoomIds.push(zoomId);              
+      }     
+      
+      if (zoomIds.length > 0){      
+        document.getElementById('viewzone').querySelector('iframe').src = zoomServer + zoomIds[0].id;                      
+      }                
+    };
+  </script>   
+  <script src="app.js"></script> 
+  
+  <script>function open_new(link) {window.open(link);}</script>
+</body>
+</html>
