@@ -53,6 +53,10 @@
       document.getElementById("viewForm").submit();
                    
     };
+    
+    // display version
+    var aVer = document.querySelector('header h1 span');
+    aVer.innerHTML += ' - v.'  + version.compare;
   </script>   
   <script src="app.js"></script>   
   

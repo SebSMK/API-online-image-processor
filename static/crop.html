@@ -52,6 +52,11 @@
         document.getElementById('viewzone').querySelector('iframe').src = zoomServer + zoomIds[0].id;                      
       }                
     };
+    
+    // display version
+    var aVer = document.querySelector('header h1 span');
+    aVer.innerHTML += ' - v.'  + version.crop;
+    
   </script>   
   <script src="app.js"></script> 
   
