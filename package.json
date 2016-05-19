@@ -1,5 +1,5 @@
 {
-  "name": "Online image processor",  
+  "name": "online-image-processor",  
   "description": "API prototype - upload, zoom in, crop and compare images.",
   "main": "index.js",
   "scripts": {
