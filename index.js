@@ -9,6 +9,11 @@ var path = require('path');
 
 app.use(express.static(__dirname + '/static'));
 
+
+app.get('/about',function(req,res){         
+  res.sendFile(path.join(__dirname, '/static', 'about.html'));
+});
+
 app.get('/compare',function(req,res){         
   res.sendFile(path.join(__dirname, '/static', 'compare.html'));
 });

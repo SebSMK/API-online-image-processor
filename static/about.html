@@ -1,41 +1,43 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>SMK | Image Cropper</title>
+  <title>SMK | API prototypes</title>
   <link href="app.css" rel="stylesheet">
   <link href="app_smk.css" rel="stylesheet">
-  <link href="smk_modif.css" rel="stylesheet"> 
+  <link href="smk_modif.css" rel="stylesheet">
+  <script>function open_new(link) {window.open(link);}</script>
+  
 </head>
 <body>
   <header class="main-header">
 		<h1 class="branding">
 			<a href="">Statens Museum for Kunst</a> 
-				<i>image cropper API&nbsp;</i><span>prototype</span>				
+				<i>Welcome to SMK's prototypes!&nbsp;</i>				
 		</h1>										
-
 	</header>
-  <div class="dropzone" id="dropzone">
-    <span>Drop your image here...</span>
-  </div>
+  
   <div class="viewzone" id="viewzone">
-    <form id="viewForm" target="my-iframe" method="post">
-      <input type='hidden' id='images' name='images' />      
-    </form>
-		
-
-    <iframe name="my-iframe"></iframe>
-    <span></span>
+    <div><a id="crop" href="#" onClick="window.open('/crop', '_blank')">Crop prototype: <span></span></a></div>
+    <div><a id="comp" href="#" onClick="window.open('/compare', '_blank')">Compare prototype: <span></span></a></div>    
   </div>
-  <input type="file" id="addFile" multiple>
+   
   <div class="footer">
     SMK APIs
   </div>
   <script src="socket.io.js"></script> 
   <script src="config.js"></script> 
   
-  <script >         
+  <script > 
+  
+    // display version
+    var aVer = document.querySelector('#crop span');
+    aVer.innerHTML += ' - v.'  + version.crop;
+    
+    aVer = document.querySelector('#comp span');
+    aVer.innerHTML += ' - v.'  + version.compare;
+            
     var zoomServer = cropServer;
-    var maxImageSize = maximagesize;   
+    var maxImageSize = 100000000;   
     var maxSelImages = 1;    
     
     var refreshViewer = function () {       
@@ -52,14 +54,7 @@
         document.getElementById('viewzone').querySelector('iframe').src = zoomServer + zoomIds[0].id;                      
       }                
     };
-    
-    // display version
-    var aVer = document.querySelector('header h1 span');
-    aVer.innerHTML += ' - v.'  + version.crop;
-    
   </script>   
-  <script src="app.js"></script> 
   
-  <script>function open_new(link) {window.open(link);}</script>
 </body>
 </html>

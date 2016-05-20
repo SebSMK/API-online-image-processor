@@ -5,6 +5,11 @@
   <link href="app.css" rel="stylesheet">
   <link href="app_smk.css" rel="stylesheet">
   <link href="smk_modif.css" rel="stylesheet">
+  
+  <link href="images/smk-favicon.png" rel="shortcut icon">
+  <link href="images/favicon.png" type="image/x-icon" rel="icon">
+  <link href="images/smk.png" rel="apple-touch-icon">
+    
   <script>function open_new(link) {window.open(link);}</script>
   
 </head>
@@ -16,45 +21,36 @@
 		</h1>										
 	</header>
   
-  <div class="viewzone" id="viewzone">
-    <div><a id="crop" href="#" onClick="window.open('/crop', '_blank')">Crop prototype: <span></span></a></div>
-    <div><a id="comp" href="#" onClick="window.open('/compare', '_blank')">Compare prototype: <span></span></a></div>    
+  <div id="homezone">
+    <div class="proto">
+      <h2>Online Image cropper<h2> 
+      <h3>With this app' you will be able to upload hi-res images, zoom in and crop them, save and create a permalink to the resulting image.</h3>
+      <div><a id="crop" href="#" onClick="window.open('/crop', '_blank')">Try the online image cropper</a></div>
+    </div>
+
+    <div class="proto">
+      <h2>Online Image comparator<h2> 
+      <h3>With this app' you will be able to upload hi-res images, zoom in, compare them and create a permalink to the resulting images.</h3>
+      <div><a id="comp" href="#" onClick="window.open('/compare', '_blank')">Try the online image comparator</a></div>
+    </div>
+    
+    <div class="reminder">
+      <div>
+        
+          As those applications are still in a prototype phase of development, they’ve got some limitations:
+        <ul>
+         <li>We strongly recommend that you use Chrome as your web browser</li>
+         <li>Even if the maximum size for uploaded images is set to 400Mo, depending on your internet connection speed, uploading images above 150Mo can be erratic.</li>
+        </ul>        
+      </div>
+    
+    </div>       
   </div>
    
   <div class="footer">
     SMK APIs
-  </div>
-  <script src="socket.io.js"></script> 
+  </div>  
   <script src="config.js"></script> 
-  
-  <script > 
-  
-    // display version
-    var aVer = document.querySelector('#crop span');
-    aVer.innerHTML += ' - v.'  + version.crop;
     
-    aVer = document.querySelector('#comp span');
-    aVer.innerHTML += ' - v.'  + version.compare;
-            
-    var zoomServer = cropServer;
-    var maxImageSize = 100000000;   
-    var maxSelImages = 1;    
-    
-    var refreshViewer = function () {       
-      var selected = document.getElementById('dropzone').getElementsByClassName('selected');
-      var zoomIds = [];
-      
-      for (var i = 0, length = selected.length; i < length; i++) {
-        var zoomId = {};      
-        zoomId['id'] = selected[i].getAttribute('imageid');      
-        zoomIds.push(zoomId);              
-      }     
-      
-      if (zoomIds.length > 0){      
-        document.getElementById('viewzone').querySelector('iframe').src = zoomServer + zoomIds[0].id;                      
-      }                
-    };
-  </script>   
-  
 </body>
 </html>
