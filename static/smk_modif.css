@@ -30,6 +30,10 @@ progress[value] {
 	background: #c00 none 0 0 no-repeat;
 }
 
+.main-header {        
+    margin-left: 50px;    
+}
+
 .main-header.home {
     position: relative;
     margin-bottom: 2.5em;
@@ -42,10 +46,9 @@ progress[value] {
 #homezone {
 	background-color: #f7f7f7;
 	border: 2px dashed #c7c7c7;	
-	margin-top: 20px;
-  margin-bottom: 20px;
-  margin-left: auto;
-  margin-right: auto;	
+  margin: auto;
+  margin-top: 20px;
+  margin-bottom: 20px;  	
   padding: 10px;	
 	overflow: hidden;
 	//text-align: center;
@@ -133,6 +136,7 @@ progress[value] {
 	border: 2px dashed #c7c7c7;
 	//height: 500px;
 	margin: 20px;
+  margin-left: 50px; 
 	//overflow: scroll;
 	overflow-x: hidden;
 	text-align: center;

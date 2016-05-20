@@ -66,5 +66,17 @@
   <script src="app.js"></script>   
   
   <script>function open_new(link) {window.open(link);}</script>
+  
+  <div class="feedback" title="feedback.html"></div>
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script>
+      $(".feedback").each(function(){
+          var inc=$(this);
+          $.get(inc.attr("title"), function(data){
+              inc.replaceWith(data);
+          });
+      });  
+  </script>
+  
 </body>
 </html>
